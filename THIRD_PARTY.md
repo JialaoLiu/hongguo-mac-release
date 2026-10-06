@@ -14,3 +14,5 @@
 评论与楼中楼的协议字段参考 [fanqie-assistant/src/api/comment.ts](https://github.com/naiyQAQ/fanqie-assistant/blob/main/src/api/comment.ts)，采用独立 Swift 实现，仅接入读取接口。
 
 应用图标根据用户提供的公开播放三角环参考，通过 imagegen 重新生成黑灰圆角底板上的玫红至珊瑚渐变图形，保存为 `packaging/AppIcon.png`；未使用完整官方应用图标或其文字。参考形状涉及的第三方权利仍归其权利人，图标改色不表示平台授权。左上角使用无底板的透明三角环，资源为 `packaging/DesktopLogo.png`。本客户端为独立桌面项目。
+
+DMG 安装布局使用 [dmgbuild](https://github.com/dmgbuild/dmgbuild)、[ds_store](https://github.com/dmgbuild/ds_store) 与 [mac_alias](https://github.com/dmgbuild/mac_alias) 生成 Finder 配置；这些仅为本地打包工具，不是应用运行依赖。
