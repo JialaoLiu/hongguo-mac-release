@@ -14,7 +14,7 @@
 
 ## 下载与安装
 
-在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-0.4.0-arm64.dmg`，打开后将 **红果短剧.app** 拖入 Applications。
+在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-0.4.1-arm64.dmg`，打开后将 **红果短剧.app** 拖入 Applications。
 
 | 项目 | 要求 |
 | --- | --- |
@@ -43,7 +43,7 @@
 
 ## 界面预览
 
-截图展示当前开发版本界面。
+截图展示 0.4.1 的桌面界面。
 
 **Discover · 深色模式**
 
