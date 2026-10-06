@@ -10,7 +10,11 @@
 
 ## 许可与内容归属
 
-本项目开发者拥有权利的代码和文档采用 [MIT License](LICENSE)。该许可不替代第三方组件的原有许可，也不授予平台名称、商标、视频、封面、评论或其他第三方内容的使用及再分发权。
+本项目面向个人学习、研究和非商业技术交流。新发布且明确采用 [非商业使用许可](LICENSE) 的自有材料请勿商用；商业使用需另行取得权利人的书面许可。
+
+第三方组件保持原有许可，平台名称、商标、视频、封面、评论等权利归各自权利方所有。本项目的使用许可不授予第三方材料的使用及再分发权。
+
+v0.4.2 及此前已发布的安装包和此前按 MIT 取得的材料继续遵循原有许可；本次更新不追溯取消已授予的 MIT 权利。后续采用新许可的应用安装包须随包提供新许可。
 
 仓库不存储或发布剧集媒体库。客户端使用中展示的内容来自对应内容服务，内容权利属于其各自权利人；可用范围及使用条件由内容服务决定。应用的运行组件和相关许可声明随安装包提供。
 
@@ -20,4 +24,4 @@
 
 如认为仓库中的具体文件或发行附件侵犯您的权利，请在 [Issues](https://github.com/JialaoLiu/hongguo-mac-release/issues) 提供相关文件或附件链接、权利归属说明、具体理由及可联系的方式。维护者会核查并对有依据的问题进行修改或移除；涉及个人隐私的信息请勿公开提交。
 
-正式版权通知可依照 [GitHub DMCA 流程](https://docs.github.com/en/site-policy/content-removal-policies/guide-to-submitting-a-dmca-takedown-notice) 提交。此声明及 MIT License 不构成平台授权，也不能保证项目免于版权、商标投诉或下架要求。
+正式版权通知可依照 [GitHub DMCA 流程](https://docs.github.com/en/site-policy/content-removal-policies/guide-to-submitting-a-dmca-takedown-notice) 提交。此声明及本项目许可不构成平台授权，也不能保证项目免于版权、商标投诉或下架要求。

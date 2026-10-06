@@ -6,11 +6,30 @@
 
 <p align="center">在 Mac 上找剧、看剧、接着看。</p>
 
-[下载最新版本](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [MIT License](LICENSE) · [仓库声明](REPOSITORY_NOTICE.md)
+[![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+[![Build](https://img.shields.io/badge/build-macOS%2026%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+
+[下载最新版本](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [非商业使用许可](LICENSE) · [仓库声明](REPOSITORY_NOTICE.md)
 
 基于 SwiftUI、AppKit 与 AVFoundation 构建的 macOS 原生短剧客户端。无需安装手机端 App，找剧、选集、续播和阅读评论都在桌面完成。
 
 **已支持深色模式、评论与楼中楼，以及相关作品和同系列其他季切换。**
+
+本项目面向个人学习、研究和技术交流。对于采用新许可的自有软件与文档，**请勿商用**。平台名称、商标、视频、封面、评论及第三方组件等权利归各自权利方所有；本项目为独立维护的非官方客户端。
+
+## 界面预览
+
+**Discover · 深色模式**
+
+![深色模式下的发现页，五列两行展示热门作品](images/screenshots/discover-dark.png)
+
+**Ranking · 深色模式**
+
+![深色模式下的排行榜](images/screenshots/ranking-dark.png)
+
+**Explore · 浅色模式**
+
+![浅色模式下的探索页与分类筛选](images/screenshots/explore-light.png)
 
 ## 下载与安装
 
@@ -69,22 +88,6 @@ xattr -dr com.apple.quarantine "/Applications/红果短剧.app"
 
 左上角只保留透明三角环 Logo，点击即可清空搜索与筛选，返回首页。排行榜与探索接近列表底部时自动批量追加作品。
 
-## 界面预览
-
-截图展示 0.4.1 的桌面界面。
-
-**Discover · 深色模式**
-
-![深色模式下的发现页，五列两行展示热门作品](images/screenshots/discover-dark.png)
-
-**Ranking · 深色模式**
-
-![深色模式下的排行榜](images/screenshots/ranking-dark.png)
-
-**Explore · 浅色模式**
-
-![浅色模式下的探索页与分类筛选](images/screenshots/explore-light.png)
-
 ## 致谢与参考
 
 感谢以下项目及其维护者公开的代码、技术资料和产品经验，为本项目的开发提供了帮助。
@@ -107,7 +110,9 @@ macOS 界面、导航、播放器交互和本机数据管理由本项目独立�
 
 本项目由独立开发者维护，与红果内容平台及参考项目维护者没有隶属、合作或背书关系。平台名称、商标、视频、封面和评论等内容的权利属于各自权利人。
 
-开发者拥有权利的代码和文档采用 [MIT License](LICENSE)。第三方组件遵循各自原有许可；MIT License 不授予平台品牌或内容的使用与再分发权。发行范围和权利反馈方式见 [关于本仓库](REPOSITORY_NOTICE.md)。
+新发布且明确采用本许可的自有软件、代码和文档使用 [非商业使用许可](LICENSE)。第三方组件保持原有许可，平台内容按各权利方的使用条件处理。发行范围和权利反馈方式见 [关于本仓库](REPOSITORY_NOTICE.md)。
+
+v0.4.2 及此前的已发布安装包继续使用各自随包许可。此前按 MIT 授予的使用权不因本次声明更新而取消；后续采用非商业许可的安装包须随包提供新许可。
 
 ## 反馈问题
 
