@@ -4,24 +4,47 @@
 
 <h1 align="center">红果短剧</h1>
 
-<p align="center">在 Mac 上找剧、看剧、接着看。</p>
+<p align="center">Mac 上点进就播，下次回来接着看。</p>
 
 [![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
 [![Build](https://img.shields.io/badge/build-macOS%2026%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
 
-[下载最新版本](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [非商业使用许可](LICENSE) · [仓库声明](REPOSITORY_NOTICE.md)
+**不用手机 App，不用另装 Java、FFmpeg 或 Homebrew。** 找剧、选集、续播、看评论，在一个桌面窗口里完成。
 
-基于 SwiftUI、AppKit 与 AVFoundation 构建的 macOS 原生短剧客户端。无需安装手机端 App，找剧、选集、续播和阅读评论都在桌面完成。
+[下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [使用许可](LICENSE) · [项目声明](REPOSITORY_NOTICE.md)
 
-**已支持深色模式、评论与楼中楼，以及相关作品和同系列其他季切换。**
+## 一条命令，装好就看
 
-本项目面向个人学习、研究和技术交流。对于采用新许可的自有软件与文档，**请勿商用**。平台名称、商标、视频、封面、评论及第三方组件等权利归各自权利方所有；本项目为独立维护的非官方客户端。
+支持 **Apple Silicon（M 系列）和 macOS 26 及以上**。打开终端，粘贴这条命令：
 
-## 界面预览
+```bash
+curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | bash
+```
+
+自动下载最新版、安装到 Applications、检查签名完整性。装好后打开 **红果短剧** 即可；无需单独下载运行组件 ZIP。运行前可先查看 [脚本内容](install.sh)。
 
 **Discover · 深色模式**
 
-![深色模式下的发现页，五列两行展示热门作品](images/screenshots/discover-dark.png)
+![发现页，五列两行展示热门作品](images/screenshots/discover-dark.png)
+
+## 看剧顺手，找剧省事
+
+| 想做什么 | 直接怎么用 |
+| --- | --- |
+| 找一部剧 | 搜索剧名或演员，切换真人剧、漫剧、AI 剧 |
+| 不知道看什么 | 看热播榜、刷发现页，探索里按主题筛选 |
+| 接着上次看 | 点进剧集就续播；没看过的从第一集开始 |
+| 找下一季 | 在相关作品里直接切换同系列其他季 |
+| 边做事边看 | 开画中画，或切换视频全屏 |
+| 调整播放 | 选画质、调倍速、拖进度；全屏左侧调亮度，右侧调音量 |
+| 看大家怎么说 | 读评论、看点赞数、展开楼中楼；下滑自动加载 |
+| 留着以后看 | 收藏和观看记录保存在本机 |
+| 换个外观 | 默认深色，也支持浅色和跟随系统 |
+
+排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。
+
+<details>
+<summary>更多界面：Ranking 与 Explore</summary>
 
 **Ranking · 深色模式**
 
@@ -29,19 +52,32 @@
 
 **Explore · 浅色模式**
 
-![浅色模式下的探索页与分类筛选](images/screenshots/explore-light.png)
+![浅色模式下的探索与分类筛选](images/screenshots/explore-light.png)
 
-## 下载与安装
+</details>
 
-### 方式一：一键安装（推荐）
+## 想手动安装？
 
-建议先查看 [安装脚本](install.sh)，再在终端运行：
+在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载最新的 `HongguoDrama-<版本>-arm64.dmg`，打开后把 **红果短剧.app** 拖到右侧 **Applications**。
+
+<details>
+<summary>手动安装后的首次打开提示，以及指定版本安装</summary>
+
+当前安装包使用 ad hoc 签名，尚未完成 Apple Developer ID 签名与公证。手动下载后若提示“Apple 无法验证此应用是否安全”：
+
+1. 将应用拖到 Applications，尝试打开一次，关闭提示。
+2. 打开“系统设置 → 隐私与安全性”。
+3. 找到红果短剧，选择“仍要打开”。
+
+macOS 15 及以后，右键“打开”已不能绕过这个提示。[Apple 官方步骤](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)
+
+确认来源可信后，也可以在终端运行：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | bash
+xattr -dr com.apple.quarantine "/Applications/红果短剧.app"
 ```
 
-脚本会下载最新版 DMG、安装到 Applications，并清除下载隔离属性，避免浏览器下载后出现“无法验证”的首次打开提示。
+一键安装脚本已包含清除该应用下载隔离属性的步骤。这不代表应用已获 Apple 公证。
 
 安装指定版本：
 
@@ -49,44 +85,7 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | HONGGUO_VERSION=0.4.1 bash
 ```
 
-### 方式二：手动下载 DMG
-
-在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载最新的 `HongguoDrama-<版本>-arm64.dmg`，打开后将 **红果短剧.app** 拖入 Applications。
-
-| 项目 | 要求 |
-| --- | --- |
-| 系统 | macOS 26 及以上 |
-| 芯片 | Apple Silicon（M 系列，arm64） |
-| 手机端 App | 无需安装 |
-| 额外运行环境 | 无需单独安装 Java 或 FFmpeg |
-
-### 首次打开的系统提示
-
-当前安装包尚未完成 Apple Developer ID 签名与公证。如果出现“Apple 无法验证此应用是否安全”，将应用拖入 Applications 后尝试打开一次，关闭提示，再进入“系统设置 → 隐私与安全性”，找到红果短剧并选择“仍要打开”。macOS 15 及以后，右键“打开”已不能绕过这个提示。具体步骤见 [Apple 官方说明](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)。
-
-也可以在确认下载来源可信后，通过终端清除该应用的下载隔离属性：
-
-```bash
-xattr -dr com.apple.quarantine "/Applications/红果短剧.app"
-```
-
-运行组件已随应用提供。`hongguo-native-runtime-macos-arm64.zip` 用于维护，普通使用只需下载 DMG。
-
-## 桌面体验
-
-| 功能 | 使用方式 |
-| --- | --- |
-| 找剧 | 发现、排行榜、探索；支持真人剧、漫剧和 AI 剧 |
-| 首页 | 每个区块五列两行，共十部；切换类型同步刷新热门与新剧 |
-| 观看 | 点进剧集即播放；有记录从上次位置继续，无记录从第一集开始 |
-| 选集与相关作品 | 完整选集，详情页可查看相关作品并直接切换同系列其他季 |
-| 播放控制 | 画质、倍速、进度、音量、画中画；视频全屏平滑展开与收回 |
-| 全屏手势 | 右半区双指滑动调音量，左半区调画面亮度 |
-| 评论 | 未登录可只读浏览；已载入评论按点赞数降序，支持自动分页与楼中楼 |
-| 收藏与历史 | 保存在本机，详情页与片单使用统一书签图标 |
-| 外观 | 默认深色，支持浅色与跟随系统；玫红强调色与播放 Logo 配色一致 |
-
-左上角只保留透明三角环 Logo，点击即可清空搜索与筛选，返回首页。排行榜与探索接近列表底部时自动批量追加作品。
+</details>
 
 ## 致谢与参考
 
@@ -104,16 +103,21 @@ xattr -dr com.apple.quarantine "/Applications/红果短剧.app"
 
 macOS 界面、导航、播放器交互和本机数据管理由本项目独立实现。参考资料、直接使用的组件及其原有许可分别保留，详细说明见 [THIRD_PARTY.md](THIRD_PARTY.md) 和安装包内的组件声明。
 
-## 关于本仓库
+## 用途与版权
 
-本仓库用于发布安装包和收集反馈，应用源码保留在本地。仓库公开不代表应用完整源码已经公开。
+本项目面向个人学习、研究和技术交流，是独立维护的非官方客户端，与红果平台没有隶属或合作关系。
 
-本项目由独立开发者维护，与红果内容平台及参考项目维护者没有隶属、合作或背书关系。平台名称、商标、视频、封面和评论等内容的权利属于各自权利人。
+新发布且明确采用 [非商业使用许可](LICENSE) 的自有材料，**请勿商用**。平台名称、商标、视频、封面、评论和第三方组件的权利归各自权利方所有；本项目许可不授予第三方内容的使用权。
 
-新发布且明确采用本许可的自有软件、代码和文档使用 [非商业使用许可](LICENSE)。第三方组件保持原有许可，平台内容按各权利方的使用条件处理。发行范围和权利反馈方式见 [关于本仓库](REPOSITORY_NOTICE.md)。
+源码保留在本地，公开仓库用于发行和反馈。详细说明见 [项目声明](REPOSITORY_NOTICE.md)。
 
-v0.4.2 及此前的已发布安装包继续使用各自随包许可。此前按 MIT 授予的使用权不因本次声明更新而取消；后续采用非商业许可的安装包须随包提供新许可。
+<details>
+<summary>历史版本的许可</summary>
 
-## 反馈问题
+v0.4.2 及此前已发布的安装包继续使用各自随包许可。此前按 MIT 授予的权利不会因这次声明更新而取消；后续采用非商业许可的安装包须随包提供新许可。
 
-欢迎在 [Issues](https://github.com/JialaoLiu/hongguo-mac-release/issues) 提交问题或建议。请附上应用版本、macOS 版本、芯片型号、复现步骤及相关截图，方便定位。
+</details>
+
+## 用着顺手，欢迎点个 Star
+
+问题和建议发到 [Issues](https://github.com/JialaoLiu/hongguo-mac-release/issues)。带上应用版本、macOS 版本和截图，方便定位。
