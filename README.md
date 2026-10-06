@@ -27,7 +27,7 @@
 curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | bash
 ```
 
-自动下载最新版、安装到 Applications、检查签名完整性。装好后打开 **红果短剧** 即可；无需单独下载运行组件 ZIP。运行前可先查看 [脚本内容](install.sh)。 也可以在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `install.sh`，在终端执行 `bash ~/Downloads/install.sh`。
+自动下载最新版、安装到 Applications、检查签名完整性。装好后打开 **红果短剧** 即可；无需单独下载运行组件 ZIP。运行前可先查看 [脚本内容](install.sh)。也可以在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `install.sh`，在终端执行 `bash ~/Downloads/install.sh`。
 
 **Discover · 深色模式**
 
@@ -46,11 +46,11 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | 看大家怎么说 | 读评论、看点赞数、展开楼中楼；下滑自动加载 |
 | 留着以后看 | 收藏和观看记录保存在本机 |
 | 换个外观 | 默认深色，也支持浅色和跟随系统 |
+| 更新软件 | 设置里检查更新，下载完成后自动替换并重启 |
 
 排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。
 
-<details>
-<summary>更多界面：Ranking 与 Explore</summary>
+## 更多界面
 
 **Ranking · 深色模式**
 
@@ -59,8 +59,6 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 **Explore · 浅色模式**
 
 ![浅色模式下的探索与分类筛选](images/screenshots/explore-light.png)
-
-</details>
 
 ## 想手动安装？
 
