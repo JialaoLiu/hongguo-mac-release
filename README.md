@@ -1,20 +1,16 @@
 # 红果短剧 Mac 发行
 
-此私有仓库用于保存发行说明和打包附件，不存放应用项目源码。
+此私有仓库保存发行说明和编译附件，应用源码保留本地。
 
 ## 下载
 
-请到 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载最新版。
+到 [最新版 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoMac-0.3.3-arm64.dmg`，将应用拖到 Applications。
+支持 macOS 26 及以上、Apple Silicon（arm64）。运行组件已随应用携带，无需安装手机 App。
+`hongguo-native-runtime-macos-arm64.zip` 是维护用组件，普通使用无需单独下载。
 
-- 普通使用：下载 `HongguoMac-0.3.1-arm64.dmg`，将应用拖到 Applications。
-- 当前支持：macOS 26 及以上，Apple Silicon（arm64）。
-- Java、签名器和媒体组件已随应用携带，无需安装红果手机 App 或开发工具。
-- `hongguo-native-runtime-macos-arm64.zip` 是维护用的独立运行组件，普通使用无需单独下载。
+## 0.3.3
 
-## 0.3.1
-
-- 侧栏发现、排行榜、探索、收藏、历史与设置的整个方块均可点击，包含边角留白。
-- 已看过的剧进入后自动恢复上次集数与进度并播放；未看过的剧等待手动播放。
-- 自定义播放器支持画质、倍速、进度定位、系统画中画与视频全屏。全屏右半区双指滑动调音量，左半区调画面亮度；普通窗口滚动不调整这两项。
-
-支持完整选集和独立播放、榜单分页、分类筛选、音量保存和本机续播。外观可选择跟随系统、浅色粉色和深色。
+- 未登录可只读浏览评论，显示点赞数；每批 40 条，下滑自动追加。
+- 点击查看回复及更深的楼中楼；回复每批 20 条并自动分页。不提供发表或点赞写操作。
+- 相关作品直接切换同系列其他季；左上角 Logo 一键重置搜索并返回首页。
+- 排行榜、探索自动批量加载；外观选项为跟随系统、浅色、深色。
