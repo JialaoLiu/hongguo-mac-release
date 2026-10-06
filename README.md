@@ -23,6 +23,10 @@
 | 手机端 App | 无需安装 |
 | 额外运行环境 | 无需单独安装 Java 或 FFmpeg |
 
+### 首次打开的系统提示
+
+当前安装包尚未完成 Apple Developer ID 签名与公证。如果出现“Apple 无法验证此应用是否安全”，将应用拖入 Applications 后尝试打开一次，关闭提示，再进入“系统设置 → 隐私与安全性”，找到红果短剧并选择“仍要打开”。仅在确认下载来源可信后操作。具体步骤见 [Apple 官方说明](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)。
+
 运行组件已随应用提供。`hongguo-native-runtime-macos-arm64.zip` 用于维护，普通使用只需下载 DMG。
 
 ## 桌面体验
