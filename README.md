@@ -14,7 +14,25 @@
 
 ## 下载与安装
 
-在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-0.4.1-arm64.dmg`，打开后将 **红果短剧.app** 拖入 Applications。
+### 方式一：一键安装（推荐）
+
+建议先查看 [安装脚本](install.sh)，再在终端运行：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | bash
+```
+
+脚本会下载最新版 DMG、安装到 Applications，并清除下载隔离属性，避免浏览器下载后出现“无法验证”的首次打开提示。
+
+安装指定版本：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | HONGGUO_VERSION=0.4.1 bash
+```
+
+### 方式二：手动下载 DMG
+
+在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载最新的 `HongguoDrama-<版本>-arm64.dmg`，打开后将 **红果短剧.app** 拖入 Applications。
 
 | 项目 | 要求 |
 | --- | --- |
@@ -25,7 +43,13 @@
 
 ### 首次打开的系统提示
 
-当前安装包尚未完成 Apple Developer ID 签名与公证。如果出现“Apple 无法验证此应用是否安全”，将应用拖入 Applications 后尝试打开一次，关闭提示，再进入“系统设置 → 隐私与安全性”，找到红果短剧并选择“仍要打开”。仅在确认下载来源可信后操作。具体步骤见 [Apple 官方说明](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)。
+当前安装包尚未完成 Apple Developer ID 签名与公证。如果出现“Apple 无法验证此应用是否安全”，将应用拖入 Applications 后尝试打开一次，关闭提示，再进入“系统设置 → 隐私与安全性”，找到红果短剧并选择“仍要打开”。macOS 15 及以后，右键“打开”已不能绕过这个提示。具体步骤见 [Apple 官方说明](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)。
+
+也可以在确认下载来源可信后，通过终端清除该应用的下载隔离属性：
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/红果短剧.app"
+```
 
 运行组件已随应用提供。`hongguo-native-runtime-macos-arm64.zip` 用于维护，普通使用只需下载 DMG。
 
