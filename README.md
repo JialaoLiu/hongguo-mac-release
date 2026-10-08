@@ -7,7 +7,7 @@
 <p align="center">Mac 上点进就播，下次回来接着看。</p>
 
 [![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
-[![Build](https://img.shields.io/badge/build-18%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+[![Build](https://img.shields.io/badge/build-19%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
 
 ## 为什么做这个
 
@@ -17,7 +17,7 @@
 
 **不用手机 App，不用另装 Java、FFmpeg 或 Homebrew。** 找剧、选集、续播、看评论，在一个桌面窗口里完成。
 
-**当前版本：0.6.1 · build 18**
+**当前版本：0.6.2 · build 19**
 
 [下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [使用许可](LICENSE) · [项目声明](#项目声明)
 
@@ -31,19 +31,15 @@
 
 ![在线播放、简介与选集](images/screenshots/watching-light.png)
 
-## 一条命令，装好就看
+## 下载与安装
 
 支持 **Apple Silicon（M 系列）和 macOS 13 及以上**。Intel（x86_64）版仍在适配，尚未提供安装包。
 
-打开终端，粘贴这条命令：
+1. 在 [Releases 下载最新版](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)的 `HongguoDrama-<版本>-arm64.dmg`。
+2. 打开 DMG，把 **红果短剧.app** 拖到右侧 **Applications**。
+3. 从 Applications 打开红果短剧。首次打开被拦截时，按下方带图步骤操作。
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | bash
-```
-
-自动下载最新版、安装到 Applications、检查签名完整性。装好后打开 **红果短剧** 即可；无需单独下载运行组件 ZIP。运行前可先查看 [脚本内容](install.sh)。也可以在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `install.sh`，在终端执行 `bash ~/Downloads/install.sh`。
-
-安装完成后，在“是否立即打开？”提示中输入 `y` 启动；直接回车则稍后从 Applications 打开。
+只需下载 DMG，无需单独下载运行组件 ZIP，也不用另装 Java 或 FFmpeg。
 
 ## 看剧顺手，找剧省事
 
@@ -55,7 +51,8 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | 找下一季 | 在相关作品里直接切换同系列其他季 |
 | 边做事边看 | 开启画中画小窗，主窗口自动收起；也可以切换视频全屏 |
 | 连着看不息屏 | 设置中开启“播放时防止屏幕休眠”，暂停后恢复系统设置 |
-| 调整播放 | 选画质、调倍速、拖进度；全屏左侧调亮度，右侧调音量 |
+| 调整播放 | 选画质、调倍速、拖进度；长按右方向键临时 2 倍速，松开恢复；全屏左侧调亮度，右侧调音量 |
+| 临时藏起来 | Command+B 暂停、静音并隐藏窗口，再按一次恢复；不改变系统音量 |
 | 看大家怎么说 | 看当前集评论、图片和点赞数，展开楼中楼；下滑自动加载 |
 | 离线追剧 | 播放页点“缓存”，连续拖选或全选集数；下载页播放、批量移到废纸篓，全屏也能直接选集 |
 | 连着看下一集 | 选集上方开启自动下一集，默认打开；下一集提前缓存，自动缓存约 512 MB |
@@ -66,7 +63,7 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 
 排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。导航、分类和榜单切换有轻量动效。
 
-播放时左侧菜单自动收起，点“返回”恢复。下载剧集全屏观看时，右下角点“选集”即可展开深灰集数面板，只显示已下载的集数，切集后继续保持全屏。
+在线播放保留左侧菜单，下载播放时自动收起，点“返回”恢复。换集时保留右侧选集区的滚动位置。下载剧集全屏观看时，右下角点“选集”即可展开深灰集数面板，只显示已下载的集数，切集后继续保持全屏。
 
 ## 小窗也能接着看
 
@@ -78,12 +75,7 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 
 ![深色模式下的首页](images/screenshots/discover-dark.png)
 
-## 想手动安装？
-
-在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载最新的 `HongguoDrama-<版本>-arm64.dmg`，打开后把 **红果短剧.app** 拖到右侧 **Applications**。
-
-<details>
-<summary>首次打开被拦截怎么办？附系统提示截图与指定版本安装</summary>
+## 首次打开被拦截怎么办？
 
 当前安装包使用 ad hoc 签名，尚未完成 Apple Developer ID 签名与公证。请先看提示的具体内容：
 
@@ -105,27 +97,11 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 
 macOS 15 及以后，右键“打开”已不能绕过这个提示。[Apple 官方步骤](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)
 
-仅针对上述无法验证开发者或尚未公证的提示，确认来源可信且应用未被改动后，也可以在终端运行：
-
-```bash
-xattr -dr com.apple.quarantine "/Applications/红果短剧.app"
-```
-
-一键安装脚本已包含清除该应用下载隔离属性的步骤。这不代表应用已获 Apple 公证。
-
 **App 将损坏你的电脑或 App 已损坏：**
 
 <img src="images/install/macos-malware-blocked-example.jpg" width="360" alt="Apple 示例警告：已阻止恶意软件并移到废纸篓" />
 
 这张“示例 App”截图用于区分提示类型，并非红果短剧的检测结果。Apple 说明：“将损坏你的电脑”可能涉及恶意内容或授权撤销；“已损坏”可能涉及文件损坏或被修改；检测到已知恶意软件时，系统会阻止打开并将其移到废纸篓。遇到恶意软件拦截请保留提示并在 [Issues](https://github.com/JialaoLiu/hongguo-mac-release/issues) 反馈，不要强行打开。[Apple 官方说明](https://support.apple.com/zh-cn/102445)
-
-安装指定版本：
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | HONGGUO_VERSION=0.4.1 bash
-```
-
-</details>
 
 ## 致谢与参考
 
