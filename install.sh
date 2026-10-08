@@ -9,8 +9,8 @@ if [[ "$(uname -m)" != "arm64" ]]; then
   exit 1
 fi
 macos_version="$(sw_vers -productVersion)"
-if [[ "${macos_version%%.*}" -lt 26 ]]; then
-  echo "安装失败：需要 macOS 26 或以上，当前为 ${macos_version}。" >&2
+if [[ "${macos_version%%.*}" -lt 13 ]]; then
+  echo "安装失败：需要 macOS 13 或以上，当前为 ${macos_version}。" >&2
   exit 1
 fi
 if [[ -n "${HONGGUO_VERSION:-}" ]]; then
@@ -58,6 +58,26 @@ mkdir "$tmp/mnt"
 echo "正在挂载安装包……"
 hdiutil attach -nobrowse -readonly -mountpoint "$tmp/mnt" "$tmp/hongguo.dmg" >/dev/null
 mounted=1
+source_app="$tmp/mnt/红果短剧.app"
+minimum_version="$(plutil -extract LSMinimumSystemVersion raw -o - "$source_app/Contents/Info.plist")"
+if [[ ! "$minimum_version" =~ ^[0-9]+(\.[0-9]+){0,2}$ ]]; then
+  echo "安装失败：安装包的最低系统要求无效，现有应用保持不变。" >&2
+  exit 1
+fi
+IFS=. read -r required_major required_minor required_patch <<< "$minimum_version"
+IFS=. read -r current_major current_minor current_patch <<< "$macos_version"
+required_minor="${required_minor:-0}"; required_patch="${required_patch:-0}"
+current_minor="${current_minor:-0}"; current_patch="${current_patch:-0}"
+if (( current_major < required_major ||
+      (current_major == required_major && current_minor < required_minor) ||
+      (current_major == required_major && current_minor == required_minor && current_patch < required_patch) )); then
+  echo "安装失败：${release_tag} 需要 macOS ${minimum_version} 或以上，当前为 ${macos_version}。现有应用保持不变。" >&2
+  exit 1
+fi
+if ! codesign --verify --deep --strict "$source_app"; then
+  echo "安装失败：安装包签名完整性校验未通过，现有应用保持不变。" >&2
+  exit 1
+fi
 if pgrep -x HongguoMac >/dev/null; then
   echo "请先退出红果短剧，再运行安装脚本。" >&2
   exit 1
@@ -81,7 +101,7 @@ if [[ -e "$app_path" ]]; then
   run_install rm -rf "$app_path"
 fi
 echo "正在安装到 Applications……"
-run_install ditto "$tmp/mnt/红果短剧.app" "$app_path"
+run_install ditto "$source_app" "$app_path"
 run_install xattr -dr com.apple.quarantine "$app_path" 2>/dev/null || true
 if ! codesign --verify --deep --strict "$app_path"; then
   echo "安装失败：应用签名完整性校验未通过。" >&2

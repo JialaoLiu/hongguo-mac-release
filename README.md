@@ -7,7 +7,7 @@
 <p align="center">Mac 上点进就播，下次回来接着看。</p>
 
 [![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
-[![Build](https://img.shields.io/badge/build-macOS%2026%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+[![Build](https://img.shields.io/badge/build-17%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
 
 ## 为什么做这个
 
@@ -17,11 +17,23 @@
 
 **不用手机 App，不用另装 Java、FFmpeg 或 Homebrew。** 找剧、选集、续播、看评论，在一个桌面窗口里完成。
 
+**当前版本：0.6.0 · build 17**
+
 [下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [使用许可](LICENSE) · [项目声明](#项目声明)
+
+## 界面预览
+
+**首页 · 浅色**
+
+![首页，五列两行展示热门作品](images/screenshots/discover-light.png)
+
+**正在观看**
+
+![在线播放、简介与选集](images/screenshots/watching-light.png)
 
 ## 一条命令，装好就看
 
-支持 **Apple Silicon（M 系列）和 macOS 26 及以上**。打开终端，粘贴这条命令：
+支持 **Apple Silicon（M 系列）和 macOS 13 及以上**。打开终端，粘贴这条命令：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | bash
@@ -31,10 +43,6 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 
 安装完成后，在“是否立即打开？”提示中输入 `y` 启动；直接回车则稍后从 Applications 打开。
 
-**Discover · 深色模式**
-
-![发现页，五列两行展示热门作品](images/screenshots/discover-dark.png)
-
 ## 看剧顺手，找剧省事
 
 | 想做什么 | 直接怎么用 |
@@ -43,12 +51,12 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | 不知道看什么 | 看热播榜、刷发现页，探索里按主题筛选 |
 | 接着上次看 | 点进剧集就续播；没看过的从第一集开始 |
 | 找下一季 | 在相关作品里直接切换同系列其他季 |
-| 边做事边看 | 开画中画，或切换视频全屏 |
+| 边做事边看 | 开启画中画小窗，主窗口自动收起；也可以切换视频全屏 |
 | 连着看不息屏 | 设置中开启“播放时防止屏幕休眠”，暂停后恢复系统设置 |
 | 调整播放 | 选画质、调倍速、拖进度；全屏左侧调亮度，右侧调音量 |
 | 看大家怎么说 | 看当前集评论、图片和点赞数，展开楼中楼；下滑自动加载 |
-| 离线追剧 | 播放页点“缓存”批量选集，下载页管理并播放已下载剧集 |
-| 连着看下一集 | 下一集提前缓存；自动缓存约 512 MB，手动下载单独保留 |
+| 离线追剧 | 播放页点“缓存”，连续拖选或全选集数；下载页播放、批量移到废纸篓 |
+| 连着看下一集 | 选集上方开启自动下一集，默认打开；下一集提前缓存，自动缓存约 512 MB |
 | 专心看画面 | 简介、相关作品、评论分开展示，右栏可收起，播放控件自动隐藏 |
 | 留着以后看 | 收藏和观看记录保存在本机 |
 | 换个外观 | 默认跟随系统，也可以选择浅色或深色 |
@@ -56,15 +64,15 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 
 排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。
 
-## 更多界面
+## 小窗也能接着看
 
-**Ranking · 深色模式**
+播放器点“画中画”，视频悬浮在其他窗口上方，主窗口自动最小化。暂停、继续播放和自动换集都可以在小窗状态下使用；回到主窗口后接着看。
 
-![深色模式下的排行榜](images/screenshots/ranking-dark.png)
+## 深色外观
 
-**Explore · 浅色模式**
+默认跟随系统，也可以在设置中随时切换浅色或深色。
 
-![浅色模式下的探索与分类筛选](images/screenshots/explore-light.png)
+![深色模式下的首页](images/screenshots/discover-dark.png)
 
 ## 想手动安装？
 
@@ -127,7 +135,7 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | [fanqie-assistant](https://github.com/naiyQAQ/fanqie-assistant) | 早期作品点评与楼中楼接口的协议字段参考 |
 | [红果短剧官网](https://hongguoduanju.com/) | 官方 Android 安装包中的单集评论与回复协议核对来源 |
 | [unidbg](https://github.com/zhkl0228/unidbg) | 本机签名组件所需的 native 执行框架 |
-| [OpenJDK 17](https://openjdk.org/projects/jdk/17/) | 随包 Java 运行环境 |
+| [Eclipse Temurin / OpenJDK 17](https://adoptium.net/temurin/releases/) | 自包含 Java 17 运行环境 |
 | [FFmpeg](https://ffmpeg.org/) | 媒体读取、处理与 MP4 重封装 |
 
 macOS 界面、导航、播放器交互和本机数据管理由本项目独立实现。参考资料、直接使用的组件及其原有许可分别保留，详见下方项目声明和安装包内的组件声明。
@@ -169,8 +177,8 @@ v0.4.2 及此前已发布的安装包和此前按 MIT 取得的材料继续遵�
 | --- | --- | --- |
 | FqTrace / unidbg-sign | https://github.com/zhangbaio/hongguo/tree/main/unidbg-sign | 本机请求签名 |
 | unidbg 与 JNI 依赖 | https://github.com/zhkl0228/unidbg | 执行签名组件所需的 native 代码 |
-| OpenJDK 17 | https://openjdk.org/projects/jdk/17/ | 随包 Java 运行环境 |
-| FFmpeg 与编解码库 | https://ffmpeg.org/ | CENC 媒体读取和 MP4 重封装 |
+| Eclipse Temurin / OpenJDK 17 | https://adoptium.net/temurin/releases/ | 自包含 Java 17.0.20.1+1 运行环境 |
+| FFmpeg 9.0.2 | https://ffmpeg.org/ | 官方源码构建的 macOS 13 媒体读取和 MP4 重封装组件 |
 
 原始组件声明保存在应用的 `Contents/Resources/NativeRuntime/notices`，源码引用和构建步骤保存在本项目。Swift 界面、请求集成和本机启动器由本项目实现。
 
