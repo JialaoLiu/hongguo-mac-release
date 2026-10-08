@@ -43,9 +43,12 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | 找下一季 | 在相关作品里直接切换同系列其他季 |
 | 边做事边看 | 开画中画，或切换视频全屏 |
 | 调整播放 | 选画质、调倍速、拖进度；全屏左侧调亮度，右侧调音量 |
-| 看大家怎么说 | 读评论、看点赞数、展开楼中楼；下滑自动加载 |
+| 看大家怎么说 | 看当前集评论、图片和点赞数，展开楼中楼；下滑自动加载 |
+| 离线追剧 | 播放页点“缓存”批量选集，下载页管理并播放已下载剧集 |
+| 连着看下一集 | 下一集提前缓存；自动缓存约 512 MB，手动下载单独保留 |
+| 专心看画面 | 简介、相关作品、评论分开展示，右栏可收起，播放控件自动隐藏 |
 | 留着以后看 | 收藏和观看记录保存在本机 |
-| 换个外观 | 默认深色，也支持浅色和跟随系统 |
+| 换个外观 | 默认跟随系统，也可以选择浅色或深色 |
 | 更新软件 | 设置里检查更新，下载完成后自动替换并重启 |
 
 排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。
@@ -65,23 +68,41 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载最新的 `HongguoDrama-<版本>-arm64.dmg`，打开后把 **红果短剧.app** 拖到右侧 **Applications**。
 
 <details>
-<summary>手动安装后的首次打开提示，以及指定版本安装</summary>
+<summary>首次打开被拦截怎么办？附系统提示截图与指定版本安装</summary>
 
-当前安装包使用 ad hoc 签名，尚未完成 Apple Developer ID 签名与公证。手动下载后若提示“Apple 无法验证此应用是否安全”：
+当前安装包使用 ad hoc 签名，尚未完成 Apple Developer ID 签名与公证。请先看提示的具体内容：
+
+| 系统提示 | 怎么处理 |
+| --- | --- |
+| 无法验证开发者、无法检查是否包含恶意软件 | 确认来自本仓库 Releases 且未被改动后，按下面的“仍要打开”步骤操作 |
+| App 已损坏、无法打开 | 先删除本次下载并从本仓库 Releases 重新下载；仍失败时反馈版本、提示原文和截图 |
+| 将损坏你的电脑、已阻止恶意软件并移到废纸篓 | 停止运行并反馈，等待核查；不要用下面的命令绕过此类拦截 |
+
+**无法验证开发者或尚未公证：**
 
 1. 将应用拖到 Applications，尝试打开一次，关闭提示。
-2. 打开“系统设置 → 隐私与安全性”。
-3. 找到红果短剧，选择“仍要打开”。
+2. 打开“系统设置 → 隐私与安全性”，向下滚动至“安全性”。
+3. 找到红果短剧，选择“仍要打开”，按系统提示确认“打开”。
+
+<img src="images/install/macos-open-anyway-example.jpg" width="720" alt="Apple 系统设置示例：隐私与安全性中的仍要打开按钮" />
+
+上图中的“示例 App”是系统说明示例，实际操作时请核对应用名称。[Apple 官方说明](https://support.apple.com/zh-cn/102445)
 
 macOS 15 及以后，右键“打开”已不能绕过这个提示。[Apple 官方步骤](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)
 
-确认来源可信后，也可以在终端运行：
+仅针对上述无法验证开发者或尚未公证的提示，确认来源可信且应用未被改动后，也可以在终端运行：
 
 ```bash
 xattr -dr com.apple.quarantine "/Applications/红果短剧.app"
 ```
 
 一键安装脚本已包含清除该应用下载隔离属性的步骤。这不代表应用已获 Apple 公证。
+
+**App 将损坏你的电脑或 App 已损坏：**
+
+<img src="images/install/macos-malware-blocked-example.jpg" width="360" alt="Apple 示例警告：已阻止恶意软件并移到废纸篓" />
+
+这张“示例 App”截图用于区分提示类型，并非红果短剧的检测结果。Apple 说明：“将损坏你的电脑”可能涉及恶意内容或授权撤销；“已损坏”可能涉及文件损坏或被修改；检测到已知恶意软件时，系统会阻止打开并将其移到废纸篓。遇到恶意软件拦截请保留提示并在 [Issues](https://github.com/JialaoLiu/hongguo-mac-release/issues) 反馈，不要强行打开。[Apple 官方说明](https://support.apple.com/zh-cn/102445)
 
 安装指定版本：
 
@@ -100,7 +121,8 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | [hongguo-desktop-releases](https://github.com/waligoraamodio288-rgb/hongguo-desktop-releases) | 桌面播放流程、功能与 Issues 的参考；签名运行资料取自其 v1.0.4 发行包 |
 | [zhangbaio/hongguo](https://github.com/zhangbaio/hongguo) | 内容接口与媒体处理链路的研究资料，以及 FqTrace / unidbg-sign 运行组件 |
 | [KEJIYUNB/hongguo](https://github.com/KEJIYUNB/hongguo) | Android 端交互与体验优化资料参考 |
-| [fanqie-assistant](https://github.com/naiyQAQ/fanqie-assistant) | 评论、回复与楼中楼接口的协议字段参考 |
+| [fanqie-assistant](https://github.com/naiyQAQ/fanqie-assistant) | 早期作品点评与楼中楼接口的协议字段参考 |
+| [红果短剧官网](https://hongguoduanju.com/) | 官方 Android 安装包中的单集评论与回复协议核对来源 |
 | [unidbg](https://github.com/zhkl0228/unidbg) | 本机签名组件所需的 native 执行框架 |
 | [OpenJDK 17](https://openjdk.org/projects/jdk/17/) | 随包 Java 运行环境 |
 | [FFmpeg](https://ffmpeg.org/) | 媒体读取、处理与 MP4 重封装 |
@@ -151,7 +173,9 @@ v0.4.2 及此前已发布的安装包和此前按 MIT 取得的材料继续遵�
 
 签名所需的运行资料取自 [hongguo-desktop-releases v1.0.4](https://github.com/waligoraamodio288-rgb/hongguo-desktop-releases/releases/tag/v1.0.4) 发行包。原始 Python 后端没有并入本项目。组件来源声明不代表双方存在合作或维护关系。
 
-评论与楼中楼的协议字段参考 [fanqie-assistant/src/api/comment.ts](https://github.com/naiyQAQ/fanqie-assistant/blob/main/src/api/comment.ts)，采用独立 Swift 实现，仅接入读取接口。
+早期作品点评与楼中楼的协议字段参考 [fanqie-assistant/src/api/comment.ts](https://github.com/naiyQAQ/fanqie-assistant/blob/main/src/api/comment.ts)。0.5.0 起的当前集评论与回复参数依据 [红果短剧官网](https://hongguoduanju.com/) 提供的官方 Android 安装包核对，采用独立 Swift 实现，仅接入读取接口；这不表示本项目是官方 macOS 客户端。
+
+本地协议核对使用 [JADX](https://github.com/skylot/jadx)，该工具和 Android 安装包均不随本客户端分发。
 
 应用图标根据用户提供的公开播放三角环参考，通过 imagegen 重新生成黑灰圆角底板上的玫红至珊瑚渐变图形，保存为 `packaging/AppIcon.png`；未使用完整官方应用图标或其文字。参考形状涉及的第三方权利仍归其权利人，图标改色不表示平台授权。左上角使用无底板的透明三角环，资源为 `packaging/DesktopLogo.png`。本客户端为独立桌面项目。
 
