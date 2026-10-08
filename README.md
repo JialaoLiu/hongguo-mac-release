@@ -7,7 +7,7 @@
 <p align="center">Mac 上点进就播，下次回来接着看。</p>
 
 [![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
-[![Build](https://img.shields.io/badge/build-17%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+[![Build](https://img.shields.io/badge/build-18%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
 
 ## 为什么做这个
 
@@ -17,7 +17,7 @@
 
 **不用手机 App，不用另装 Java、FFmpeg 或 Homebrew。** 找剧、选集、续播、看评论，在一个桌面窗口里完成。
 
-**当前版本：0.6.0 · build 17**
+**当前版本：0.6.1 · build 18**
 
 [下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [使用许可](LICENSE) · [项目声明](#项目声明)
 
@@ -33,7 +33,9 @@
 
 ## 一条命令，装好就看
 
-支持 **Apple Silicon（M 系列）和 macOS 13 及以上**。打开终端，粘贴这条命令：
+支持 **Apple Silicon（M 系列）和 macOS 13 及以上**。Intel（x86_64）版仍在适配，尚未提供安装包。
+
+打开终端，粘贴这条命令：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/install.sh | bash
@@ -55,14 +57,16 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | 连着看不息屏 | 设置中开启“播放时防止屏幕休眠”，暂停后恢复系统设置 |
 | 调整播放 | 选画质、调倍速、拖进度；全屏左侧调亮度，右侧调音量 |
 | 看大家怎么说 | 看当前集评论、图片和点赞数，展开楼中楼；下滑自动加载 |
-| 离线追剧 | 播放页点“缓存”，连续拖选或全选集数；下载页播放、批量移到废纸篓 |
+| 离线追剧 | 播放页点“缓存”，连续拖选或全选集数；下载页播放、批量移到废纸篓，全屏也能直接选集 |
 | 连着看下一集 | 选集上方开启自动下一集，默认打开；下一集提前缓存，自动缓存约 512 MB |
 | 专心看画面 | 简介、相关作品、评论分开展示，右栏可收起，播放控件自动隐藏 |
 | 留着以后看 | 收藏和观看记录保存在本机 |
 | 换个外观 | 默认跟随系统，也可以选择浅色或深色 |
 | 更新软件 | 设置里检查更新，下载完成后自动替换并重启 |
 
-排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。
+排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。导航、分类和榜单切换有轻量动效。
+
+播放时左侧菜单自动收起，点“返回”恢复。下载剧集全屏观看时，右下角点“选集”即可展开深灰集数面板，只显示已下载的集数，切集后继续保持全屏。
 
 ## 小窗也能接着看
 
