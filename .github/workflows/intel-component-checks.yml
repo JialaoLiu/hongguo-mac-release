@@ -1,0 +1,192 @@
+name: Intel macOS component checks
+
+on:
+  workflow_dispatch:
+    inputs:
+      asset_id:
+        description: Draft test bundle asset ID
+        required: true
+        type: string
+      bundle_sha256:
+        description: SHA-256 of the compiled test bundle
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  intel-components:
+    runs-on: macos-15-intel
+    timeout-minutes: 15
+    steps:
+      - name: Download compiled checks
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ASSET_ID: ${{ inputs.asset_id }}
+          BUNDLE_SHA256: ${{ inputs.bundle_sha256 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$ASSET_ID" =~ ^[0-9]+$ ]]
+          [[ "$BUNDLE_SHA256" =~ ^[a-f0-9]{64}$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID" \
+            -H 'Accept: application/octet-stream' > "$RUNNER_TEMP/intel-checks.zip"
+          printf '%s  %s\n' "$BUNDLE_SHA256" "$RUNNER_TEMP/intel-checks.zip" | shasum -a 256 -c -
+          mkdir -p "$RUNNER_TEMP/intel-checks" "$RUNNER_TEMP/intel-results"
+          ditto -xk "$RUNNER_TEMP/intel-checks.zip" "$RUNNER_TEMP/intel-checks"
+          chmod +x "$RUNNER_TEMP/intel-checks/bin/"*
+
+      - name: Prepare official Intel Java 17
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 2 --max-time 180 \
+            'https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jre_x64_mac_hotspot_17.0.20.1_1.tar.gz' \
+            -o "$RUNNER_TEMP/intel-java.tar.gz"
+          printf '%s  %s\n' 333cb81123c36568586646c73c8fa2326dab8badc43f5ea388a90fff59c9df27 "$RUNNER_TEMP/intel-java.tar.gz" | shasum -a 256 -c -
+          mkdir -p "$RUNNER_TEMP/intel-java"
+          tar -xzf "$RUNNER_TEMP/intel-java.tar.gz" -C "$RUNNER_TEMP/intel-java"
+
+      - name: Check native Intel components
+        shell: bash
+        run: |
+          set -euo pipefail
+          ulimit -c 0
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import platform
+          from pathlib import Path
+          import selectors
+          import shutil
+          import subprocess
+          import urllib.request
+
+          root = Path(os.environ['RUNNER_TEMP'])
+          bundle = root / 'intel-checks'
+          results = root / 'intel-results'
+          java = next((root / 'intel-java').glob('*/Contents/Home/bin/java'))
+          manifest = json.loads((bundle / 'manifest.json').read_text())
+          report = {
+              'system': subprocess.check_output(['sw_vers'], text=True).strip(),
+              'architecture': platform.machine(),
+              'cpu': subprocess.check_output(['sysctl', '-n', 'machdep.cpu.brand_string'], text=True).strip(),
+              'checks': {},
+          }
+          translated = subprocess.run(['sysctl', '-in', 'sysctl.proc_translated'], capture_output=True, text=True)
+          report['rosetta'] = translated.stdout.strip() == '1'
+          assert report['architecture'] == 'x86_64' and not report['rosetta'], report
+          assert subprocess.check_output(['sw_vers', '-productVersion'], text=True).split('.')[0] == '15', report
+
+          def check(name, operation):
+              try:
+                  detail = operation()
+                  report['checks'][name] = {'passed': True, 'detail': detail}
+              except Exception as error:
+                  report['checks'][name] = {'passed': False, 'error': str(error)}
+              print(name + ': ' + ('PASS' if report['checks'][name]['passed'] else 'FAIL'), flush=True)
+
+          def command(name, args, timeout=60):
+              result = subprocess.run([str(x) for x in args], capture_output=True, text=True, timeout=timeout)
+              (results / (name + '.log')).write_text(result.stdout + result.stderr)
+              if result.returncode:
+                  raise RuntimeError(name + ' exited with ' + str(result.returncode))
+              return result.stdout.strip() or result.stderr.strip()
+
+          check('java', lambda: command('java', [java, '-version']))
+          check('core', lambda: command('core', [bundle / 'bin/HongguoChecks']))
+
+          def media_hash(path):
+              data = path.read_bytes()
+              payload = bytearray()
+              offset = 0
+              while offset < len(data):
+                  size = int.from_bytes(data[offset:offset + 4], 'big')
+                  header = 8
+                  if size == 1:
+                      size = int.from_bytes(data[offset + 8:offset + 16], 'big')
+                      header = 16
+                  if size == 0:
+                      size = len(data) - offset
+                  assert size >= header and offset + size <= len(data)
+                  if data[offset + 4:offset + 8] == b'mdat':
+                      payload.extend(data[offset + header:offset + size])
+                  offset += size
+              assert payload
+              return hashlib.sha256(payload).hexdigest()
+
+          def media(codec):
+              output = results / (codec + '-decrypted.mp4')
+              command(codec, [bundle / 'bin/ffmpeg', '-y', '-v', 'error',
+                  '-decryption_key', '00112233445566778899aabbccddeeff',
+                  '-i', bundle / 'media' / (codec + '-encrypted.mp4'),
+                  '-c', 'copy', '-movflags', '+faststart', output])
+              digest = media_hash(output)
+              assert digest == manifest['media'][codec]['plaintext_mdat_sha256'], 'Plaintext media differs'
+              return 'Synthetic video and AAC payload match the reference'
+
+          for codec in ['h264', 'hevc']:
+              check(codec, lambda codec=codec: media(codec))
+          if all(report['checks'][codec]['passed'] for codec in ['h264', 'hevc']):
+              check('avfoundation', lambda: command('avfoundation', [bundle / 'bin/IntelMediaProbe',
+                  results / 'h264-decrypted.mp4', results / 'hevc-decrypted.mp4']))
+
+          def signer():
+              log = (results / 'signer-stderr.log').open('w')
+              process = subprocess.Popen([str(java), '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+                  '-Xmx512m', '-cp', 'unidbg-sign.jar:.', 'LocalSignServer'],
+                  cwd=bundle / 'runtime/sign', stdout=subprocess.PIPE, stderr=log, text=True)
+              try:
+                  selector = selectors.DefaultSelector()
+                  selector.register(process.stdout, selectors.EVENT_READ)
+                  if not selector.select(90):
+                      raise RuntimeError('Signer startup timed out')
+                  line = process.stdout.readline().strip()
+                  if not line.startswith('PORT '):
+                      raise RuntimeError('Signer did not become ready: ' + line)
+                  request = urllib.request.Request('http://127.0.0.1:' + line.split()[1] + '/sign',
+                      data=json.dumps({
+                          'url': 'https://example.invalid/audit?aid=8662&app_name=novelread&version_code=72232&version_name=7.2.2.32&device_platform=android',
+                          'headers': {'user-agent': 'hongguo-route-audit/1.0', 'x-tt-store-region': 'cn-sh',
+                              'x-tt-store-region-src': 'uid', 'passport-sdk-version': '5051452', 'sdk-version': '2',
+                              'content-type': 'application/json; charset=utf-8'},
+                      }).encode(), headers={'Content-Type': 'application/json'})
+                  with urllib.request.urlopen(request, timeout=90) as response:
+                      signed = json.load(response)
+                  assert signed.get('X-Argus'), 'Missing signing result'
+                  return {'header_keys': sorted(signed)}
+              finally:
+                  selector.close()
+                  process.terminate()
+                  try:
+                      process.wait(timeout=10)
+                  except subprocess.TimeoutExpired:
+                      process.kill()
+                      process.wait()
+                  log.close()
+                  for crash in (bundle / 'runtime/sign').glob('hs_err_pid*.log'):
+                      shutil.copyfile(crash, results / crash.name)
+
+          check('signer', signer)
+          (results / 'result.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))
+          lines = ['## Intel macOS component checks', '', report['system'], '',
+              report['cpu'] + ' / ' + report['architecture'], '', '| Check | Result |', '| --- | --- |']
+          lines += ['| ' + name + ' | ' + ('PASS' if item['passed'] else 'FAIL') + ' |'
+              for name, item in report['checks'].items()]
+          lines += ['', 'Compiled component checks only; desktop UI and Intel macOS 13 are not covered.']
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('\n'.join(lines) + '\n')
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          raise SystemExit(0 if all(x['passed'] for x in report['checks'].values()) else 1)
+          PY
+
+      - name: Save check results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: intel-macos15-results-${{ github.run_id }}
+          path: ${{ runner.temp }}/intel-results/
+          if-no-files-found: warn
+          retention-days: 7
