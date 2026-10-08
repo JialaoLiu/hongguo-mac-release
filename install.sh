@@ -89,9 +89,13 @@ if ! codesign --verify --deep --strict "$app_path"; then
 fi
 version="$(plutil -extract CFBundleShortVersionString raw -o - "$app_path/Contents/Info.plist")"
 echo "安装成功：红果短剧 $version"
-echo '启动命令：open -a "红果短剧"'
-if IFS= read -r -p "是否立即打开？[y/N] " answer 2>/dev/null < /dev/tty; then
-  case "$answer" in
-    y|Y) open -a "红果短剧" ;;
-  esac
+echo '启动命令：open "/Applications/红果短剧.app"'
+if { exec 3<> /dev/tty; } 2>/dev/null; then
+  printf '是否立即打开？[y/N] ' >&3
+  if IFS= read -r answer <&3; then
+    case "$answer" in
+      y|Y) open "$app_path" ;;
+    esac
+  fi
+  exec 3>&-
 fi

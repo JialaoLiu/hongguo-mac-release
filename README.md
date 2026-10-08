@@ -29,6 +29,8 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 
 自动下载最新版、安装到 Applications、检查签名完整性。装好后打开 **红果短剧** 即可；无需单独下载运行组件 ZIP。运行前可先查看 [脚本内容](install.sh)。也可以在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `install.sh`，在终端执行 `bash ~/Downloads/install.sh`。
 
+安装完成后，在“是否立即打开？”提示中输入 `y` 启动；直接回车则稍后从 Applications 打开。
+
 **Discover · 深色模式**
 
 ![发现页，五列两行展示热门作品](images/screenshots/discover-dark.png)
@@ -42,6 +44,7 @@ curl -fsSL https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/
 | 接着上次看 | 点进剧集就续播；没看过的从第一集开始 |
 | 找下一季 | 在相关作品里直接切换同系列其他季 |
 | 边做事边看 | 开画中画，或切换视频全屏 |
+| 连着看不息屏 | 设置中开启“播放时防止屏幕休眠”，暂停后恢复系统设置 |
 | 调整播放 | 选画质、调倍速、拖进度；全屏左侧调亮度，右侧调音量 |
 | 看大家怎么说 | 看当前集评论、图片和点赞数，展开楼中楼；下滑自动加载 |
 | 离线追剧 | 播放页点“缓存”批量选集，下载页管理并播放已下载剧集 |
