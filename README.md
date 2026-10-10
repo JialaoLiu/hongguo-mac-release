@@ -19,7 +19,7 @@
 
 **当前版本：0.7.0 · build 20**
 
-[下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [使用许可](LICENSE) · [项目声明](#项目声明)
+[下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [问题与修复记录](docs/BUGS.md) · [使用许可](LICENSE) · [项目声明](#项目声明)
 
 ## 界面预览
 
