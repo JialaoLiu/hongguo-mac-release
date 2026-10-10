@@ -7,7 +7,7 @@
 <p align="center">Mac 上点进就播，下次回来接着看。</p>
 
 [![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
-[![Build](https://img.shields.io/badge/build-19%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+[![Build](https://img.shields.io/badge/build-20%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
 
 ## 为什么做这个
 
@@ -17,7 +17,7 @@
 
 **不用手机 App，不用另装 Java、FFmpeg 或 Homebrew。** 找剧、选集、续播、看评论，在一个桌面窗口里完成。
 
-**当前版本：0.6.2 · build 19**
+**当前版本：0.7.0 · build 20**
 
 [下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [使用许可](LICENSE) · [项目声明](#项目声明)
 
@@ -41,6 +41,10 @@
 
 只需下载 DMG，无需单独下载运行组件 ZIP，也不用另装 Java 或 FFmpeg。
 
+## 0.7.0 更新
+
+新增当前集弹幕与 53 种原版表情，优化评论、选集、下载和播放控件。弹幕默认关闭并记住选择；回复原位分页；下载完成后可直接播放。完整改动与验证记录见 [0.7.0 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.7.0)。
+
 ## 看剧顺手，找剧省事
 
 | 想做什么 | 直接怎么用 |
@@ -52,9 +56,11 @@
 | 边做事边看 | 开启画中画小窗，主窗口自动收起；也可以切换视频全屏 |
 | 连着看不息屏 | 设置中开启“播放时防止屏幕休眠”，暂停后恢复系统设置 |
 | 调整播放 | 选画质、调倍速、拖进度；长按右方向键临时 2 倍速，松开恢复；全屏左侧调亮度，右侧调音量 |
+| 看弹幕 | 手动打开后记住选择，默认关闭；可调透明度、速度、行数和字号 |
+| 查看快捷键 | 播放页点击问号；M 静音／恢复音量，首次观看会出现简短提示 |
 | 临时藏起来 | Command+B 暂停、静音并隐藏窗口，再按一次恢复；不改变系统音量 |
-| 看大家怎么说 | 看当前集评论、图片和点赞数，展开楼中楼；下滑自动加载 |
-| 离线追剧 | 播放页点“缓存”，连续拖选或全选集数；下载页播放、批量移到废纸篓，全屏也能直接选集 |
+| 看大家怎么说 | 当前集评论与原版表情，回复原位展开、每页 10 条；近期显示几小时前／几天前 |
+| 离线追剧 | 播放页缓存选集；下载页点击播放或继续观看，显示进度和速度，可全部下载／暂停或批量删除，全屏也能直接选集 |
 | 连着看下一集 | 选集上方开启自动下一集，默认打开；下一集提前缓存，自动缓存约 512 MB |
 | 专心看画面 | 简介、相关作品、评论分开展示，右栏可收起，播放控件自动隐藏 |
 | 留着以后看 | 收藏和观看记录保存在本机 |
@@ -165,6 +171,8 @@ v0.4.2 及此前已发布的安装包和此前按 MIT 取得的材料继续遵�
 签名所需的运行资料取自 [hongguo-desktop-releases v1.0.4](https://github.com/waligoraamodio288-rgb/hongguo-desktop-releases/releases/tag/v1.0.4) 发行包。原始 Python 后端没有并入本项目。组件来源声明不代表双方存在合作或维护关系。
 
 早期作品点评与楼中楼的协议字段参考 [fanqie-assistant/src/api/comment.ts](https://github.com/naiyQAQ/fanqie-assistant/blob/main/src/api/comment.ts)。0.5.0 起的当前集评论与回复参数依据 [红果短剧官网](https://hongguoduanju.com/) 提供的官方 Android 安装包核对，采用独立 Swift 实现，仅接入读取接口；这不表示本项目是官方 macOS 客户端。
+
+评论、回复和弹幕使用的 53 种自定义表情原图及配置来自红果官方 Android 安装包，素材权利归原权利方所有，不属于本项目原创或自有材料许可范围。
 
 本地协议核对使用 [JADX](https://github.com/skylot/jadx)，该工具和 Android 安装包均不随本客户端分发。
 
