@@ -7,7 +7,7 @@
 <p align="center">Mac 上点进就播，下次回来接着看。</p>
 
 [![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
-[![Build](https://img.shields.io/badge/build-20%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+[![Build](https://img.shields.io/badge/build-41%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
 
 ## 为什么做这个
 
@@ -17,7 +17,7 @@
 
 **不用手机 App，不用另装 Java、FFmpeg 或 Homebrew。** 找剧、选集、续播、看评论，在一个桌面窗口里完成。
 
-**当前版本：0.7.0 · build 20**
+**当前版本：0.8.0 · build 41**
 
 [下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [问题与修复记录](docs/BUGS.md) · [使用许可](LICENSE) · [项目声明](#项目声明)
 
@@ -41,28 +41,30 @@
 
 只需下载 DMG，无需单独下载运行组件 ZIP，也不用另装 Java 或 FFmpeg。
 
-## 0.7.0 更新
+## 0.8.0 更新
 
-新增当前集弹幕与 53 种原版表情，优化评论、选集、下载和播放控件。弹幕默认关闭并记住选择；回复原位分页；下载完成后可直接播放。完整改动与验证记录见 [0.7.0 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.7.0)。
+可以搜索普通用户，查看对方公开的收藏和点赞短剧，评论里点头像也能进入主页；对方设为仅自己可见的列表不会显示。全屏时右侧可展开简介、选集和评论，新增隔空播放，刘海屏全屏不再被遮挡。修复切集后残留上一集弹幕、进出全屏或切回应用后弹幕消失、全屏弹幕过快等问题，评论区和播放控件也重新设计。完整改动与验证记录见 [0.8.0 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.0)。
 
 ## 看剧顺手，找剧省事
 
 | 想做什么 | 直接怎么用 |
 | --- | --- |
 | 找一部剧 | 搜索剧名或演员，切换真人剧、漫剧、AI 剧 |
+| 看看别人在追什么 | 搜索切到“用户”，或在评论里点头像，查看对方公开的收藏和点赞短剧；未公开的不显示 |
 | 不知道看什么 | 看热播榜、刷发现页，探索里按主题筛选 |
 | 接着上次看 | 点进剧集就续播；没看过的从第一集开始 |
 | 找下一季 | 在相关作品里直接切换同系列其他季 |
 | 边做事边看 | 开启画中画小窗，主窗口自动收起；也可以切换视频全屏 |
 | 连着看不息屏 | 设置中开启“播放时防止屏幕休眠”，暂停后恢复系统设置 |
 | 调整播放 | 选画质、调倍速、拖进度；长按右方向键临时 2 倍速，松开恢复；全屏左侧调亮度，右侧调音量 |
-| 看弹幕 | 手动打开后记住选择，默认关闭；可调透明度、速度、行数和字号 |
+| 看弹幕 | 手动打开后记住选择，默认关闭；按 D 快速开关，可调透明度、速度、行数和字号 |
+| 投到电视 | 控制栏点“隔空播放”，选择 Apple TV 等设备 |
 | 查看快捷键 | 播放页点击问号；M 静音／恢复音量，首次观看会出现简短提示 |
 | 临时藏起来 | Command+B 暂停、静音并隐藏窗口，再按一次恢复；不改变系统音量 |
 | 看大家怎么说 | 当前集评论与原版表情，回复原位展开、每页 10 条；近期显示几小时前／几天前 |
 | 离线追剧 | 播放页缓存选集；下载页点击播放或继续观看，显示进度和速度，可全部下载／暂停或批量删除，全屏也能直接选集 |
 | 连着看下一集 | 选集上方开启自动下一集，默认打开；下一集提前缓存，自动缓存约 512 MB |
-| 专心看画面 | 简介、相关作品、评论分开展示，右栏可收起，播放控件自动隐藏 |
+| 专心看画面 | 简介、相关作品、评论分开展示，右栏可收起，播放控件自动隐藏；全屏时也能按 X 展开右侧卡片，指针随控件隐藏 |
 | 留着以后看 | 收藏和观看记录保存在本机 |
 | 换个外观 | 默认跟随系统，也可以选择浅色或深色 |
 | 更新软件 | 设置里检查更新，下载完成后自动替换并重启 |
