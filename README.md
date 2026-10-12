@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
-  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-41%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-44%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
 </p>
 
 <p align="center">
@@ -59,7 +59,7 @@
 
 收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，下载后自动替换并重启。
 
-最近一次更新见 [0.8.0 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.0)：全屏右侧卡片、隔空播放、弹幕切集与全屏问题修复，评论区和播放控件重新设计。
+最近一次更新见 [0.8.1 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.1)：全屏自动播放下一集时不再弹出控件，预加载后面两集。上一版 [0.8.0](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.0) 加入全屏右侧卡片、隔空播放，修复弹幕切集与全屏问题。
 
 ## 首次打开被拦截怎么办？
 
