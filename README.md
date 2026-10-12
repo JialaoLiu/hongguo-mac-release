@@ -6,82 +6,60 @@
 
 <p align="center">Mac 上点进就播，下次回来接着看。</p>
 
-[![Release](https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
-[![Build](https://img.shields.io/badge/build-41%20%7C%20macOS%2013%2B%20arm64-303036)](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)
+<p align="center">
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-41%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
+</p>
 
-## 为什么做这个
+<p align="center">
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><b>下载最新版</b></a> ·
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/issues">反馈问题</a> ·
+  <a href="docs/BUGS.md">问题与修复记录</a> ·
+  <a href="#项目声明">项目声明</a>
+</p>
 
-起因很简单：我先看到了 [waligoraamodio288-rgb 的红果桌面版](https://github.com/waligoraamodio288-rgb/hongguo-desktop-releases)。作为一个摸鱼党，也想在 Mac 上用，但当时没找到能直接拿来用的 Mac 版本。
-
-那就自己 vibe 一个。先做给自己用，也放出来给大家一起用。
-
-**不用手机 App，不用另装 Java、FFmpeg 或 Homebrew。** 找剧、选集、续播、看评论，在一个桌面窗口里完成。
-
-**当前版本：0.8.0 · build 41**
-
-[下载安装包](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) · [反馈问题](https://github.com/JialaoLiu/hongguo-mac-release/issues) · [问题与修复记录](docs/BUGS.md) · [使用许可](LICENSE) · [项目声明](#项目声明)
+起因很简单：我先看到了 [waligoraamodio288-rgb 的红果桌面版](https://github.com/waligoraamodio288-rgb/hongguo-desktop-releases)。作为一个摸鱼党，也想在 Mac 上用，但当时没找到能直接拿来用的 Mac 版本，那就自己 vibe 一个。
 
 ## 界面预览
 
-**首页 · 浅色**
+**浅色**
 
-![首页，五列两行展示热门作品](images/screenshots/discover-light.png)
+![首页：热门作品与分类](images/screenshots/discover-light.png)
 
-**正在观看**
+![观看页：弹幕、简介与选集，看过的集显示为灰色](images/screenshots/watching-light.png)
 
-![在线播放、简介与选集](images/screenshots/watching-light.png)
+**深色**
+
+![全屏播放时在右侧展开评论卡片](images/screenshots/fullscreen-panel.png)
+
+![观看页的评论区与楼中楼](images/screenshots/comments-dark.png)
+
+![深色首页](images/screenshots/discover-dark.png)
 
 ## 下载与安装
 
-支持 **Apple Silicon（M 系列）和 macOS 13 及以上**。Intel（x86_64）版仍在适配，尚未提供安装包。
+支持 Apple Silicon（M 系列）、macOS 13 及以上。Intel 版仍在适配。
 
-1. 在 [Releases 下载最新版](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest)的 `HongguoDrama-<版本>-arm64.dmg`。
-2. 打开 DMG，把 **红果短剧.app** 拖到右侧 **Applications**。
-3. 从 Applications 打开红果短剧。首次打开被拦截时，按下方带图步骤操作。
+1. 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-<版本>-arm64.dmg`。
+2. 打开 DMG，把 **红果短剧.app** 拖到 **Applications**。
+3. 从 Applications 打开。首次打开被拦截时，按[下方步骤](#首次打开被拦截怎么办)操作。
 
-只需下载 DMG，无需单独下载运行组件 ZIP，也不用另装 Java 或 FFmpeg。
+## 功能
 
-## 0.8.0 更新
-
-可以搜索普通用户，查看对方公开的收藏和点赞短剧，评论里点头像也能进入主页；对方设为仅自己可见的列表不会显示。全屏时右侧可展开简介、选集和评论，新增隔空播放，刘海屏全屏不再被遮挡。修复切集后残留上一集弹幕、进出全屏或切回应用后弹幕消失、全屏弹幕过快等问题，评论区和播放控件也重新设计。完整改动与验证记录见 [0.8.0 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.0)。
-
-## 看剧顺手，找剧省事
-
-| 想做什么 | 直接怎么用 |
+| | |
 | --- | --- |
-| 找一部剧 | 搜索剧名或演员，切换真人剧、漫剧、AI 剧 |
-| 看看别人在追什么 | 搜索切到“用户”，或在评论里点头像，查看对方公开的收藏和点赞短剧；未公开的不显示 |
-| 不知道看什么 | 看热播榜、刷发现页，探索里按主题筛选 |
-| 接着上次看 | 点进剧集就续播；没看过的从第一集开始 |
-| 找下一季 | 在相关作品里直接切换同系列其他季 |
-| 边做事边看 | 开启画中画小窗，主窗口自动收起；也可以切换视频全屏 |
-| 连着看不息屏 | 设置中开启“播放时防止屏幕休眠”，暂停后恢复系统设置 |
-| 调整播放 | 选画质、调倍速、拖进度；长按右方向键临时 2 倍速，松开恢复；全屏左侧调亮度，右侧调音量 |
-| 看弹幕 | 手动打开后记住选择，默认关闭；按 D 快速开关，可调透明度、速度、行数和字号 |
-| 投到电视 | 控制栏点“隔空播放”，选择 Apple TV 等设备 |
-| 查看快捷键 | 播放页点击问号；M 静音／恢复音量，首次观看会出现简短提示 |
-| 临时藏起来 | Command+B 暂停、静音并隐藏窗口，再按一次恢复；不改变系统音量 |
-| 看大家怎么说 | 当前集评论与原版表情，回复原位展开、每页 10 条；近期显示几小时前／几天前 |
-| 离线追剧 | 播放页缓存选集；下载页点击播放或继续观看，显示进度和速度，可全部下载／暂停或批量删除，全屏也能直接选集 |
-| 连着看下一集 | 选集上方开启自动下一集，默认打开；下一集提前缓存，自动缓存约 512 MB |
-| 专心看画面 | 简介、相关作品、评论分开展示，右栏可收起，播放控件自动隐藏；全屏时也能按 X 展开右侧卡片，指针随控件隐藏 |
-| 留着以后看 | 收藏和观看记录保存在本机 |
-| 换个外观 | 默认跟随系统，也可以选择浅色或深色 |
-| 更新软件 | 设置里检查更新，下载完成后自动替换并重启 |
+| 找剧 | 搜索剧名或演员；热播榜、发现页、按主题筛选，同系列其他季一键切换 |
+| 接着看 | 点进剧集就续播，看过的集显示为灰色；自动下一集并提前缓存 |
+| 弹幕 | 当前集真实弹幕，按 D 开关；可调透明度、速度、行数和字号 |
+| 全屏 | 按 X 在右侧展开简介、选集、评论，不遮挡画面；刘海屏不挡标题 |
+| 小窗与投屏 | 画中画悬浮播放；隔空播放到 Apple TV 等设备 |
+| 评论 | 当前集评论与楼中楼，支持原版表情 |
+| 离线 | 缓存选集，下载页直接播放，显示进度和速度 |
+| 快捷键 | 空格播放、← / → 跳 5 秒、长按 → 二倍速、↑ / ↓ 切集、M 静音、D 弹幕、X 侧栏、Command+B 隐藏窗口 |
 
-排行榜与探索下滑自动追加，不用反复点“加载更多”。左上角 Logo 一点，就回首页。导航、分类和榜单切换有轻量动效。
+收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，下载后自动替换并重启。
 
-在线播放保留左侧菜单，下载播放时自动收起，点“返回”恢复。换集时保留右侧选集区的滚动位置。下载剧集全屏观看时，右下角点“选集”即可展开深灰集数面板，只显示已下载的集数，切集后继续保持全屏。
-
-## 小窗也能接着看
-
-播放器点“画中画”，视频悬浮在其他窗口上方，主窗口自动最小化。暂停、继续播放和自动换集都可以在小窗状态下使用；回到主窗口后接着看。
-
-## 深色外观
-
-默认跟随系统，也可以在设置中随时切换浅色或深色。
-
-![深色模式下的首页](images/screenshots/discover-dark.png)
+最近一次更新见 [0.8.0 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.0)：全屏右侧卡片、隔空播放、弹幕切集与全屏问题修复，评论区和播放控件重新设计。
 
 ## 首次打开被拦截怎么办？
 
