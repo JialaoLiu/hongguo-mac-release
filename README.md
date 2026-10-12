@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
-  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-46%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-47%20%7C%20macOS%2013%2B%20arm64%20%C2%B7%20x86__64-303036" alt="Build" /></a>
 </p>
 
 <p align="center">
@@ -39,9 +39,9 @@
 
 ## 下载与安装
 
-支持 Apple Silicon（M 系列）、macOS 13 及以上。Intel 版仍在适配。
+支持 macOS 13 及以上。Apple 芯片（M 系列）下载 `arm64`，Intel 芯片下载 `x86_64`（测试版）；不确定的话，看苹果菜单 →“关于本机”里的“芯片”。
 
-1. 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-<版本>-arm64.dmg`；国内网络可在 [Gitee 镜像](https://gitee.com/jarvislao/hongguo-mac-release/releases)下载同一安装包。
+1. 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-<版本>-arm64.dmg` 或 `HongguoDrama-<版本>-x86_64.dmg`；国内网络可在 [Gitee 镜像](https://gitee.com/jarvislao/hongguo-mac-release/releases)下载同一安装包。
 2. 打开 DMG，把 **红果短剧.app** 拖到 **Applications**。
 3. 从 Applications 打开。首次打开被拦截时，按[下方步骤](#首次打开被拦截怎么办)操作。
 
@@ -60,7 +60,7 @@
 
 收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，国内优先走 Gitee 镜像，下载后核对哈希再自动替换并重启。
 
-最近一次更新见 [0.8.3 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.3)：签名服务偶发启动崩溃时自动重试、中途退出时自动重启，并记录日志，减少“时播时不播”。[0.8.2](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.2) 起检查更新优先使用国内 Gitee 镜像并核对安装包哈希。
+最近一次更新见 [0.8.4 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.4)：修复部分剧集无法播放的问题，并新增 Intel 芯片版本（测试版）。应用内更新会自动选择适合本机芯片的版本。
 
 ## 首次打开被拦截怎么办？
 
