@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
-  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-45%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-46%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
 </p>
 
 <p align="center">
@@ -60,7 +60,7 @@
 
 收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，国内优先走 Gitee 镜像，下载后核对哈希再自动替换并重启。
 
-最近一次更新见 [0.8.2 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.2)：检查更新优先使用国内 Gitee 镜像并核对安装包哈希，发现新版本时侧栏底部轻量提示。[0.8.1](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.1) 让全屏自动下一集不再弹出控件，并预加载后面两集。
+最近一次更新见 [0.8.3 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.3)：签名服务偶发启动崩溃时自动重试、中途退出时自动重启，并记录日志，减少“时播时不播”。[0.8.2](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.2) 起检查更新优先使用国内 Gitee 镜像并核对安装包哈希。
 
 ## 首次打开被拦截怎么办？
 
