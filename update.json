@@ -1,0 +1,12 @@
+{
+  "version": "0.8.2",
+  "build": 45,
+  "minimumSystem": "13.0",
+  "file": "HongguoDrama-0.8.2-arm64.dmg",
+  "size": 90769345,
+  "sha256": "18dfb5dca006685e05efc1ef5960139b99cc35c9875982d5a0dac4dd282bc11a",
+  "urls": [
+    "https://gitee.com/jarvislao/hongguo-mac-release/releases/download/v0.8.2/HongguoDrama-0.8.2-arm64.dmg",
+    "https://github.com/JialaoLiu/hongguo-mac-release/releases/download/v0.8.2/HongguoDrama-0.8.2-arm64.dmg"
+  ]
+}

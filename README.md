@@ -8,11 +8,12 @@
 
 <p align="center">
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
-  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-44%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-45%20%7C%20macOS%2013%2B%20arm64-303036" alt="Build" /></a>
 </p>
 
 <p align="center">
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><b>下载最新版</b></a> ·
+  <a href="https://gitee.com/jarvislao/hongguo-mac-release/releases">国内下载（Gitee）</a> ·
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/issues">反馈问题</a> ·
   <a href="docs/BUGS.md">问题与修复记录</a> ·
   <a href="#项目声明">项目声明</a>
@@ -40,7 +41,7 @@
 
 支持 Apple Silicon（M 系列）、macOS 13 及以上。Intel 版仍在适配。
 
-1. 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-<版本>-arm64.dmg`。
+1. 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-<版本>-arm64.dmg`；国内网络可在 [Gitee 镜像](https://gitee.com/jarvislao/hongguo-mac-release/releases)下载同一安装包。
 2. 打开 DMG，把 **红果短剧.app** 拖到 **Applications**。
 3. 从 Applications 打开。首次打开被拦截时，按[下方步骤](#首次打开被拦截怎么办)操作。
 
@@ -57,9 +58,9 @@
 | 离线 | 缓存选集，下载页直接播放，显示进度和速度 |
 | 快捷键 | 空格播放、← / → 跳 5 秒、长按 → 二倍速、↑ / ↓ 切集、M 静音、D 弹幕、X 侧栏、Command+B 隐藏窗口 |
 
-收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，下载后自动替换并重启。
+收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，国内优先走 Gitee 镜像，下载后核对哈希再自动替换并重启。
 
-最近一次更新见 [0.8.1 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.1)：全屏自动播放下一集时不再弹出控件，预加载后面两集。上一版 [0.8.0](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.0) 加入全屏右侧卡片、隔空播放，修复弹幕切集与全屏问题。
+最近一次更新见 [0.8.2 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.2)：检查更新优先使用国内 Gitee 镜像并核对安装包哈希，发现新版本时侧栏底部轻量提示。[0.8.1](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.1) 让全屏自动下一集不再弹出控件，并预加载后面两集。
 
 ## 首次打开被拦截怎么办？
 
