@@ -4,19 +4,16 @@ set -euo pipefail
 app_path="/Applications/红果短剧.app"
 api="https://api.github.com/repos/JialaoLiu/hongguo-mac-release/releases"
 
-if [[ "$(uname -m)" != "arm64" ]]; then
-  echo "安装失败：仅支持 Apple Silicon（arm64），不支持 Intel Mac。" >&2
-  exit 1
+# 终端在 Rosetta 下运行时 uname -m 也会显示 x86_64，以硬件为准。
+if [[ "$(sysctl -n hw.optional.arm64 2>/dev/null || true)" == "1" ]]; then
+  arch="arm64"
+else
+  arch="x86_64"
 fi
 macos_version="$(sw_vers -productVersion)"
 if [[ "${macos_version%%.*}" -lt 13 ]]; then
   echo "安装失败：需要 macOS 13 或以上，当前为 ${macos_version}。" >&2
   exit 1
-fi
-if [[ -n "${HONGGUO_VERSION:-}" ]]; then
-  release_url="$api/tags/v$HONGGUO_VERSION"
-else
-  release_url="$api/latest"
 fi
 
 tmp="$(mktemp -d)"
@@ -29,29 +26,93 @@ cleanup() {
 }
 trap cleanup EXIT
 
-echo "正在获取发行版本……"
-if ! curl -fsSL "$release_url" -o "$tmp/release.json"; then
-  echo "获取版本失败：请检查网络、GitHub API 或指定版本。" >&2
-  exit 1
-fi
-release_tag="$(plutil -extract tag_name raw -o - "$tmp/release.json")"
-index=0
-download_url=""
-while asset_name="$(plutil -extract "assets.$index.name" raw -o - "$tmp/release.json" 2>/dev/null)"; do
-  if [[ "$asset_name" == HongguoDrama-*-arm64.dmg ]]; then
-    download_url="$(plutil -extract "assets.$index.browser_download_url" raw -o - "$tmp/release.json")"
-    break
+release_tag=""
+asset_name=""
+expected_size=""
+expected_sha=""
+download_urls=()
+
+# 先读版本清单（国内 Gitee 优先，其次 GitHub），清单给出哈希与多个下载地址。
+read_manifest() {
+  local manifest="$tmp/update.json" prefix=""
+  [[ "$arch" == "x86_64" ]] && prefix="variants.x86_64."
+  for source in "${manifests[@]}"; do
+    curl -fsSL --max-time 20 "$source" -o "$manifest" 2>/dev/null || continue
+    local version name
+    version="$(plutil -extract version raw -o - "$manifest" 2>/dev/null)" || continue
+    name="$(plutil -extract "${prefix}file" raw -o - "$manifest" 2>/dev/null)" || {
+      echo "当前版本 ${version} 暂无 ${arch} 安装包。" >&2
+      return 1
+    }
+    [[ "$name" == "HongguoDrama-${version}-${arch}.dmg" ]] || continue
+    release_tag="v$version"; asset_name="$name"
+    expected_size="$(plutil -extract "${prefix}size" raw -o - "$manifest")"
+    expected_sha="$(plutil -extract "${prefix}sha256" raw -o - "$manifest")"
+    download_urls=()
+    local index=0 url
+    while url="$(plutil -extract "${prefix}urls.$index" raw -o - "$manifest" 2>/dev/null)"; do
+      case "$url" in
+        https://gitee.com/jarvislao/hongguo-mac-release/releases/download/*|https://github.com/JialaoLiu/hongguo-mac-release/releases/download/*)
+          download_urls+=("$url") ;;
+      esac
+      index=$((index + 1))
+    done
+    [[ ${#download_urls[@]} -gt 0 ]] && return 0
+  done
+  return 1
+}
+
+# 指定版本或清单不可用时，使用 GitHub Release API。
+read_github_release() {
+  local release_url="$api/latest"
+  [[ -n "${HONGGUO_VERSION:-}" ]] && release_url="$api/tags/v$HONGGUO_VERSION"
+  if ! curl -fsSL "$release_url" -o "$tmp/release.json"; then
+    echo "获取版本失败：请检查网络、GitHub API 或指定版本。" >&2
+    exit 1
   fi
-  index=$((index + 1))
-done
-if [[ -z "$download_url" ]]; then
-  echo "安装失败：$release_tag 中没有 HongguoDrama-<版本>-arm64.dmg。" >&2
+  release_tag="$(plutil -extract tag_name raw -o - "$tmp/release.json")"
+  local index=0 name
+  while name="$(plutil -extract "assets.$index.name" raw -o - "$tmp/release.json" 2>/dev/null)"; do
+    if [[ "$name" == HongguoDrama-*-"$arch".dmg ]]; then
+      asset_name="$name"
+      download_urls=("$(plutil -extract "assets.$index.browser_download_url" raw -o - "$tmp/release.json")")
+      expected_size="$(plutil -extract "assets.$index.size" raw -o - "$tmp/release.json" 2>/dev/null || true)"
+      local digest
+      digest="$(plutil -extract "assets.$index.digest" raw -o - "$tmp/release.json" 2>/dev/null || true)"
+      expected_sha="${digest#sha256:}"
+      return 0
+    fi
+    index=$((index + 1))
+  done
+  echo "安装失败：$release_tag 暂无 ${arch} 安装包（HongguoDrama-<版本>-${arch}.dmg）。" >&2
   exit 1
+}
+
+echo "正在获取发行版本……"
+manifests=("https://gitee.com/jarvislao/hongguo-mac-release/raw/master/update.json"
+           "https://raw.githubusercontent.com/JialaoLiu/hongguo-mac-release/main/update.json")
+if [[ -n "${HONGGUO_VERSION:-}" ]] || ! read_manifest; then
+  read_github_release
 fi
 
 echo "正在下载 ${release_tag}：${asset_name}"
-if ! curl -fL --progress-bar "$download_url" -o "$tmp/hongguo.dmg"; then
-  echo "下载失败，请检查网络后重试。" >&2
+downloaded=0
+for url in "${download_urls[@]}"; do
+  rm -f "$tmp/hongguo.dmg"
+  curl -fL --progress-bar "$url" -o "$tmp/hongguo.dmg" || continue
+  if [[ -n "$expected_size" && "$(stat -f %z "$tmp/hongguo.dmg")" != "$expected_size" ]]; then
+    echo "安装包大小不一致，尝试其他下载地址……" >&2
+    continue
+  fi
+  if [[ -n "$expected_sha" && "$(shasum -a 256 "$tmp/hongguo.dmg" | cut -d ' ' -f 1)" != "$expected_sha" ]]; then
+    echo "安装包 SHA-256 不一致，尝试其他下载地址……" >&2
+    continue
+  fi
+  downloaded=1
+  break
+done
+if [[ "$downloaded" -ne 1 ]]; then
+  echo "下载失败或安装包校验未通过，现有应用保持不变。" >&2
   exit 1
 fi
 mkdir "$tmp/mnt"
@@ -76,6 +137,10 @@ if (( current_major < required_major ||
 fi
 if ! codesign --verify --deep --strict "$source_app"; then
   echo "安装失败：安装包签名完整性校验未通过，现有应用保持不变。" >&2
+  exit 1
+fi
+if ! lipo -archs "$source_app/Contents/MacOS/HongguoMac" 2>/dev/null | tr ' ' '\n' | grep -qx "$arch"; then
+  echo "安装失败：安装包不是 ${arch} 版本，现有应用保持不变。" >&2
   exit 1
 fi
 if pgrep -x HongguoMac >/dev/null; then
