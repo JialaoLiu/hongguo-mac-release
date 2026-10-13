@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
-  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-47%20%7C%20macOS%2013%2B%20arm64%20%C2%B7%20x86__64-303036" alt="Build" /></a>
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-52%20%7C%20macOS%2013%2B%20arm64%20%C2%B7%20x86__64-303036" alt="Build" /></a>
 </p>
 
 <p align="center">
@@ -60,7 +60,7 @@
 
 收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，国内优先走 Gitee 镜像，下载后核对哈希再自动替换并重启。
 
-最近一次更新见 [0.8.4 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.4)：修复部分剧集无法播放的问题，并新增 Intel 芯片版本（测试版）。应用内更新会自动选择适合本机芯片的版本。
+最近一次更新见 [0.8.5 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.5)：视频全屏改为系统原生全屏，全屏时可以切换到其他桌面和应用；应用会定期自动检查更新。应用内更新会自动选择适合本机芯片的版本。
 
 ## 首次打开被拦截怎么办？
 
@@ -109,7 +109,16 @@ macOS 界面、导航、播放器交互和本机数据管理由本项目独立�
 
 ## 项目声明
 
-**非官方客户端，面向个人学习、研究和非商业技术交流。采用新非商业许可的自有材料请勿商用；第三方内容与组件的权利归各自权利方所有。**
+**非官方客户端，仅供个人学习、研究和非商业技术交流，严禁任何商业用途。第三方内容与组件的权利归各自权利方所有。**
+
+### 使用须知
+
+- **禁止商用**：不得出售、收费分发、植入广告，或用于任何商业产品与经营活动。
+- **禁止批量获取与传播内容**：不得用于批量下载、抓取、存储或再分发剧集、封面、评论等内容，不得搭建镜像站或对外提供播放服务，不得公开传播通过本应用获取的剧集内容。
+- **支持正版**：喜欢的剧请到官方 App 观看与支持创作者。本应用只是个人在 Mac 上的观看方式探索，不替代官方服务。
+- **不保证可用**：内容服务的调整可能使本应用随时无法使用；维护者可随时停止维护或下架发行附件。
+- **自行承担责任**：请遵守所在地法律法规及内容服务的用户协议，使用风险由使用者自行承担。
+- **权利方联系**：权利方如有异议，请按下方“权利反馈”联系，核实后会及时处理。
 
 <details>
 <summary>项目关系、许可、版权归属、第三方来源与权利反馈</summary>
@@ -124,7 +133,7 @@ macOS 界面、导航、播放器交互和本机数据管理由本项目独立�
 
 ### 许可与内容归属
 
-本项目面向个人学习、研究和非商业技术交流。新发布且明确采用 [非商业使用许可](LICENSE) 的自有材料请勿商用；商业使用需另行取得权利人的书面许可。
+本项目仅面向个人学习、研究和非商业技术交流。新发布且明确采用 [非商业使用许可](LICENSE) 的自有材料严禁商用，也不得用于批量获取或再分发内容；许可中包含免责声明。
 
 第三方组件保持原有许可，平台名称、商标、视频、封面、评论等权利归各自权利方所有。本项目的使用许可不授予第三方材料的使用及再分发权。
 
@@ -142,7 +151,7 @@ v0.4.2 及此前已发布的安装包和此前按 MIT 取得的材料继续遵�
 
 | 组件 | 来源 | 用途 |
 | --- | --- | --- |
-| FqTrace / unidbg-sign | https://github.com/zhangbaio/hongguo/tree/main/unidbg-sign | 本机请求签名 |
+| FqTrace / unidbg-sign | https://github.com/zhangbaio/hongguo/tree/main/unidbg-sign | 本机请求签名；本项目修改了模拟后端的选择方式以支持 Intel |
 | unidbg 与 JNI 依赖 | https://github.com/zhkl0228/unidbg | 执行签名组件所需的 native 代码 |
 | Eclipse Temurin / OpenJDK 17 | https://adoptium.net/temurin/releases/ | 自包含 Java 17.0.20.1+1 运行环境 |
 | FFmpeg 9.0.2 | https://ffmpeg.org/ | 官方源码构建的 macOS 13 媒体读取和 MP4 重封装组件 |
