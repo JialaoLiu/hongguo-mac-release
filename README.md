@@ -3,6 +3,11 @@
 </p>
 
 <p align="center">
+  
+
+https://github.com/user-attachments/assets/ebc83542-30a3-428e-aa13-bd023ca6aacb
+
+
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FJialaoLiu%2Fhongguo-mac-release%2Fmain%2Fupdate.json&query=%24.build&label=build&color=303036" alt="Build" /></a>
   <img src="https://img.shields.io/badge/macOS-13%2B-303036" alt="macOS 13+" />
