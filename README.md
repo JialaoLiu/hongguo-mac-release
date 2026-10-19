@@ -1,14 +1,12 @@
 <p align="center">
-  <img src="images/app-icon.png" width="96" alt="红果短剧应用图标" />
+  <img src="assets/readme/hero.png" width="100%" alt="红果短剧 Mac 版：Mac 上点进就播，下次回来接着看；弹幕、全屏卡片、画中画、离线缓存">
 </p>
-
-<h1 align="center">红果短剧</h1>
-
-<p align="center">Mac 上点进就播，下次回来接着看。</p>
 
 <p align="center">
   <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/github/v/release/JialaoLiu/hongguo-mac-release?label=release&color=ff1f8c" alt="Release" /></a>
-  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/build-52%20%7C%20macOS%2013%2B%20arm64%20%C2%B7%20x86__64-303036" alt="Build" /></a>
+  <a href="https://github.com/JialaoLiu/hongguo-mac-release/releases/latest"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FJialaoLiu%2Fhongguo-mac-release%2Fmain%2Fupdate.json&query=%24.build&label=build&color=303036" alt="Build" /></a>
+  <img src="https://img.shields.io/badge/macOS-13%2B-303036" alt="macOS 13+" />
+  <img src="https://img.shields.io/badge/arm64%20%C2%B7%20x86__64-303036" alt="arm64 and x86_64" />
 </p>
 
 <p align="center">
@@ -21,31 +19,26 @@
 
 起因很简单：我先看到了 [waligoraamodio288-rgb 的红果桌面版](https://github.com/waligoraamodio288-rgb/hongguo-desktop-releases)。作为一个摸鱼党，也想在 Mac 上用，但当时没找到能直接拿来用的 Mac 版本，那就自己 vibe 一个。
 
-## 界面预览
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/3cde260b-3dff-4fa3-b9df-b638c27d4cb2" width="100%" controls muted playsinline></video>
+</p>
 
-**浅色**
-
-![首页：热门作品与分类](images/screenshots/discover-light.png)
-
-![观看页：弹幕、简介与选集，看过的集显示为灰色](images/screenshots/watching-light.png)
-
-**深色**
-
-![全屏播放时在右侧展开评论卡片](images/screenshots/fullscreen-panel.png)
-
-![观看页的评论区与楼中楼](images/screenshots/comments-dark.png)
-
-![深色首页](images/screenshots/discover-dark.png)
-
-## 下载与安装
-
-支持 macOS 13 及以上。Apple 芯片（M 系列）下载 `arm64`，Intel 芯片下载 `x86_64`（测试版）；不确定的话，看苹果菜单 →“关于本机”里的“芯片”。
-
-1. 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-<版本>-arm64.dmg` 或 `HongguoDrama-<版本>-x86_64.dmg`；国内网络可在 [Gitee 镜像](https://gitee.com/jarvislao/hongguo-mac-release/releases)下载同一安装包。
-2. 打开 DMG，把 **红果短剧.app** 拖到 **Applications**。
-3. 从 Applications 打开。首次打开被拦截时，按[下方步骤](#首次打开被拦截怎么办)操作。
+<p align="center"><sub>40 秒看完：找剧、续播、弹幕、全屏侧栏、评论、画中画与离线缓存</sub></p>
 
 ## 功能
+
+<p align="center">
+  <img src="assets/readme/features.svg" width="100%" alt="功能：找剧、接着看、弹幕（D）、全屏侧栏（X）、小窗与投屏、评论、离线、老板键（Command+B）">
+</p>
+
+<p align="center">
+  <img src="assets/readme/shortcuts.svg" width="100%" alt="快捷键：空格播放暂停，左右键跳 5 秒，长按右键二倍速，上下键切集，M 静音，D 弹幕，X 全屏侧栏，Command+B 隐藏窗口">
+</p>
+
+收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。
+
+<details>
+<summary>功能文字版</summary>
 
 | | |
 | --- | --- |
@@ -58,9 +51,39 @@
 | 离线 | 缓存选集，下载页直接播放，显示进度和速度 |
 | 快捷键 | 空格播放、← / → 跳 5 秒、长按 → 二倍速、↑ / ↓ 切集、M 静音、D 弹幕、X 侧栏、Command+B 隐藏窗口 |
 
-收藏与观看记录只保存在本机。外观默认跟随系统，也可以手动选择浅色或深色。设置里可以检查更新，国内优先走 Gitee 镜像，下载后核对哈希再自动替换并重启。
+</details>
 
-最近一次更新见 [0.8.5 Release](https://github.com/JialaoLiu/hongguo-mac-release/releases/tag/v0.8.5)：视频全屏改为系统原生全屏，全屏时可以切换到其他桌面和应用；应用会定期自动检查更新。应用内更新会自动选择适合本机芯片的版本。
+## 界面预览
+
+<table>
+  <tr>
+    <td width="50%"><img src="images/screenshots/discover-light.png" alt="首页：热门作品与分类"><br><sub>首页：热门作品与分类</sub></td>
+    <td width="50%"><img src="images/screenshots/watching-light.png" alt="观看页：弹幕、简介与选集，看过的集显示为灰色"><br><sub>观看页：弹幕、简介与选集，看过的集变灰</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="images/screenshots/comments-dark.png" alt="观看页的评论区与楼中楼"><br><sub>深色：评论区与楼中楼</sub></td>
+    <td width="50%"><img src="images/screenshots/discover-dark.png" alt="深色首页"><br><sub>深色首页</sub></td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="images/screenshots/fullscreen-panel.png" width="100%" alt="全屏播放时在右侧展开评论卡片">
+</p>
+<p align="center"><sub>全屏时按 X 在右侧展开简介、选集和评论</sub></p>
+
+## 下载与安装
+
+<p align="center">
+  <img src="assets/readme/install.svg" width="100%" alt="三步装好：按芯片选 arm64 或 x86_64 安装包；拖到 Applications；首次打开被拦截时到隐私与安全性里选仍要打开">
+</p>
+
+支持 macOS 13 及以上。Apple 芯片（M 系列）下载 `arm64`，Intel 芯片下载 `x86_64`（测试版）；不确定的话，看苹果菜单 →“关于本机”里的“芯片”。
+
+1. 在 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases/latest) 下载 `HongguoDrama-<版本>-arm64.dmg` 或 `HongguoDrama-<版本>-x86_64.dmg`；国内网络可在 [Gitee 镜像](https://gitee.com/jarvislao/hongguo-mac-release/releases)下载同一安装包。
+2. 打开 DMG，把 **红果短剧.app** 拖到 **Applications**。
+3. 从 Applications 打开。首次打开被拦截时，按[下方步骤](#首次打开被拦截怎么办)操作。
+
+每个版本的改动见 [Releases](https://github.com/JialaoLiu/hongguo-mac-release/releases)。设置里可以检查更新，国内优先走 Gitee 镜像，下载后核对哈希再自动替换并重启；应用内更新会自动选择适合本机芯片的版本。
 
 ## 首次打开被拦截怎么办？
 

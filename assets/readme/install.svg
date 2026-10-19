@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="370" viewBox="0 0 1200 370" role="img" aria-labelledby="title desc">
+  <title id="title">三步装好</title>
+  <desc id="desc">第一步：苹果菜单 → 关于本机 查看芯片，Apple 芯片下载 arm64，Intel 下载 x86_64（测试版）；第二步：把红果短剧.app 拖到 Applications；第三步：首次打开被拦截时，到系统设置 → 隐私与安全性 → 仍要打开。</desc>
+  <rect width="1200" height="370" rx="24" fill="#FFFFFF"/>
+<defs><linearGradient id="ring" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FF1A8C"/><stop offset="1" stop-color="#FF8A5C"/></linearGradient></defs>
+<text x="64" y="72" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="30" fill="#1D1B3A" font-weight="700">三步装好</text>
+<rect x="64" y="100" width="330" height="230" rx="16" fill="#F6F5FA" stroke="#E6E4EE" stroke-width="1"/>
+<text x="88" y="150" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="40" fill="#FF1A8C" font-weight="700">1</text>
+<text x="124" y="146" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#1D1B3A" font-weight="700">按芯片选安装包</text>
+<text x="88" y="188" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#5F5D7A">苹果菜单 → 关于本机 → 芯片</text>
+<rect x="88" y="212" width="132" height="40" rx="20" fill="#FFFFFF" stroke="#E6E4EE" stroke-width="1"/>
+<text x="154" y="238" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#1D1B3A" font-weight="700" text-anchor="middle">Apple 芯片</text>
+<path d="M228 232 h18 m-6 -6 l6 6 l-6 6" stroke="#5F5D7A" stroke-width="2" fill="none"/>
+<text x="256" y="238" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, monospace" font-size="17" fill="#FF1A8C" font-weight="700">arm64.dmg</text>
+<rect x="88" y="266" width="132" height="40" rx="20" fill="#FFFFFF" stroke="#E6E4EE" stroke-width="1"/>
+<text x="154" y="292" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#1D1B3A" font-weight="700" text-anchor="middle">Intel</text>
+<path d="M228 286 h18 m-6 -6 l6 6 l-6 6" stroke="#5F5D7A" stroke-width="2" fill="none"/>
+<text x="256" y="292" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, monospace" font-size="17" fill="#FF1A8C" font-weight="700">x86_64.dmg</text>
+<text x="256" y="314" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="14" fill="#5F5D7A">测试版</text>
+<rect x="435" y="100" width="330" height="230" rx="16" fill="#F6F5FA" stroke="#E6E4EE" stroke-width="1"/>
+<text x="459" y="150" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="40" fill="#FF1A8C" font-weight="700">2</text>
+<text x="495" y="146" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#1D1B3A" font-weight="700">拖到 Applications</text>
+<rect x="475" y="196" width="76" height="76" rx="18" fill="#1E1F26"/>
+<path d="M499 214 C 499 206, 505 204, 511 208 L 533 222 C 539 226, 539 236, 533 240 L 511 254 C 505 258, 499 256, 499 248 Z" fill="none" stroke="url(#ring)" stroke-width="9" stroke-linejoin="round"/>
+<path d="M567 234 h70" stroke="#5F5D7A" stroke-width="2.5" stroke-dasharray="6 6"/><path d="M635 227 l9 7 l-9 7 z" fill="#5F5D7A"/>
+<rect x="655" y="196" width="76" height="76" rx="16" fill="#FFFFFF" stroke="#E6E4EE" stroke-width="1"/>
+<text x="693" y="242" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="30" fill="#3B82F6" font-weight="700" text-anchor="middle">A</text>
+<text x="513" y="300" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#5F5D7A" text-anchor="middle">红果短剧.app</text>
+<text x="693" y="300" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#5F5D7A" text-anchor="middle">Applications</text>
+<rect x="806" y="100" width="330" height="230" rx="16" fill="#F6F5FA" stroke="#E6E4EE" stroke-width="1"/>
+<text x="830" y="150" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="40" fill="#FF1A8C" font-weight="700">3</text>
+<text x="866" y="146" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#1D1B3A" font-weight="700">首次打开被拦截？</text>
+<text x="830" y="196" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#1D1B3A">系统设置 → 隐私与安全性</text>
+<text x="830" y="226" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#1D1B3A">→ 安全性 → “仍要打开”</text>
+<rect x="830" y="256" width="152" height="38" rx="19.0" fill="#FFE3EE"/><text x="906.0" y="277" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#1D1B3A" font-weight="700" text-anchor="middle">详细步骤见下方</text>
+</svg>
