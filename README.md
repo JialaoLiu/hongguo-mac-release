@@ -19,9 +19,11 @@
 
 起因很简单：我先看到了 [waligoraamodio288-rgb 的红果桌面版](https://github.com/waligoraamodio288-rgb/hongguo-desktop-releases)。作为一个摸鱼党，也想在 Mac 上用，但当时没找到能直接拿来用的 Mac 版本，那就自己 vibe 一个。
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/ebc83542-30a3-428e-aa13-bd023ca6aacb" width="100%" controls muted playsinline></video>
-</p>
+
+
+
+https://github.com/user-attachments/assets/0f31ec10-ef09-41c7-8c61-2909e8b5ed28
+
 
 <p align="center"><sub>40 秒看完：找剧、续播、弹幕、全屏侧栏、评论、画中画与离线缓存</sub></p>
 
