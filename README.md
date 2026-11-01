@@ -21,12 +21,6 @@
 
 
 
-
-https://github.com/user-attachments/assets/0f31ec10-ef09-41c7-8c61-2909e8b5ed28
-
-
-<p align="center"><sub>40 秒看完：找剧、续播、弹幕、全屏侧栏、评论、画中画与离线缓存</sub></p>
-
 ## 功能
 
 <p align="center">
