@@ -1,22 +1,22 @@
 {
-  "version": "0.8.10",
-  "build": 57,
+  "version": "0.8.11",
+  "build": 58,
   "minimumSystem": "13.0",
-  "file": "HongguoDrama-0.8.10-arm64.dmg",
-  "size": 90874047,
-  "sha256": "58a52456d50808c00170e755c1c9ad345fe1bab6a134847a79e9a420d7f2173e",
+  "file": "HongguoDrama-0.8.11-arm64.dmg",
+  "size": 90876403,
+  "sha256": "1ccc09590fb23c0dfa784bbc60e6b4b9f8f96d4b9fa48491632fd1cb766834ce",
   "urls": [
-    "https://gitee.com/jarvislao/hongguo-mac-release/releases/download/v0.8.10/HongguoDrama-0.8.10-arm64.dmg",
-    "https://github.com/JialaoLiu/hongguo-mac-release/releases/download/v0.8.10/HongguoDrama-0.8.10-arm64.dmg"
+    "https://gitee.com/jarvislao/hongguo-mac-release/releases/download/v0.8.11/HongguoDrama-0.8.11-arm64.dmg",
+    "https://github.com/JialaoLiu/hongguo-mac-release/releases/download/v0.8.11/HongguoDrama-0.8.11-arm64.dmg"
   ],
   "variants": {
     "x86_64": {
-      "file": "HongguoDrama-0.8.10-x86_64.dmg",
-      "size": 85307097,
-      "sha256": "02e6a963cae0e1cb9cb3eb34f42ddf84dd375a9bedf4d2aed081943e18314155",
+      "file": "HongguoDrama-0.8.11-x86_64.dmg",
+      "size": 85309400,
+      "sha256": "e791ac8e65f5d4da8eb91c5f56e4d398331a1cb01e4b3f228997a9e91f60d6c7",
       "urls": [
-        "https://gitee.com/jarvislao/hongguo-mac-release/releases/download/v0.8.10/HongguoDrama-0.8.10-x86_64.dmg",
-        "https://github.com/JialaoLiu/hongguo-mac-release/releases/download/v0.8.10/HongguoDrama-0.8.10-x86_64.dmg"
+        "https://gitee.com/jarvislao/hongguo-mac-release/releases/download/v0.8.11/HongguoDrama-0.8.11-x86_64.dmg",
+        "https://github.com/JialaoLiu/hongguo-mac-release/releases/download/v0.8.11/HongguoDrama-0.8.11-x86_64.dmg"
       ]
     }
   }
